@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Home - Portofolio Saya</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <link rel="stylesheet" href="css/custom.css" />
+  </head>
+  <body>
+    
+    <nav class="navbar navbar-dark bg-black fixed-top d-md-none">
+      <div class="container-fluid">
+        <a class="navbar-brand fw-bold" href="#"><i class="text-success"></i> My Portfolio</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mobileMenu">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="mobileMenu">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item"><a class="nav-link active" href="index.html">Home</a></li>
+            <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+            <li class="nav-item"><a class="nav-link" href="portofolio.html">Portfolio</a></li>
+            <li class="nav-item"><a class="nav-link" href="kontak.html">Contact</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <nav class="sidebar d-none d-md-flex flex-column">
+        <div class="brand-section mb-4"><h4><i class="text-success"></i>Arel'S Portofolio</h4></div>
+        <ul class="nav flex-column">
+            <li class="nav-item"><a href="index.html" class="nav-link active"><i class="fas fa-home"></i> Home</a></li>
+            <li class="nav-item"><a href="about.html" class="nav-link"><i class="fas fa-user"></i> About Me</a></li>
+            <li class="nav-item"><a href="portofolio.html" class="nav-link"><i class="fas fa-book-open"></i> Portfolio</a></li>
+            <li class="nav-item"><a href="kontak.html" class="nav-link"><i class="fas fa-envelope"></i> Contact</a></li>
+        </ul>
+    </nav>
+
+    <main class="main-content">
+      <div class="p-5 mb-4 rounded-3 text-white" style="background: rgba(0, 0, 0, 0.3)">
+        <div class="container-fluid py-5">
+          <h1 class="display-5 fw-bold">Jardel Poliviera Portofolio</h1>
+          <p class="col-md-8 fs-4">Mahasiswa Informatika yang memiliki ketertarikan pada Video Editing.</p>
+          <a href="portofolio.html" class="btn btn-success btn-lg rounded-pill px-4 mt-3">Lihat Portfolio</a>
+          <a href="kontak.html" class="btn btn-outline-light btn-lg rounded-pill px-4 mt-3 ms-2">Hubungi Saya</a>
+        </div>
+      </div>
+
+      <h4 class="fw-bold mb-3">Featured Highlights</h4>
+      <div id="carouselExample" class="carousel slide mb-5" data-bs-ride="carousel">
+        <div class="carousel-indicators">
+          <button type="button" data-bs-target="#carouselExample" data-bs-slide-to="0" class="active"></button>
+          <button type="button" data-bs-target="#carouselExample" data-bs-slide-to="1"></button>
+          <button type="button" data-bs-target="#carouselExample" data-bs-slide-to="2"></button>
+        </div>
+        <div class="carousel-inner rounded">
+          <div class="carousel-item active">
+            <img src="images/github.png" class="d-block w-100" alt="Slide 1" />
+            <div class="carousel-caption d-none d-md-block">
+              <h5>Github</h5>
+              <p>akun Github saya.</p>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <img src="images/linkedin.png" class="d-block w-100" alt="Slide 2" />
+            <div class="carousel-caption d-none d-md-block">
+              <h5>LinkedIn</h5>
+              <p>-.</p>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <img src="images/web.png" class="d-block w-100" alt="Slide 3" />
+            <div class="carousel-caption d-none d-md-block">
+              <h5>Progressive Web</h5>
+              <p>Progressive Web Portofolio.</p>
+            </div>
+          </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon"></span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+          <span class="carousel-control-next-icon"></span>
+        </button>
+      </div>
+
+      <h4 class="fw-bold mb-3">Skill</h4>
+      <div class="row g-4 mb-5">
+        <div class="col-6 col-md-3">
+          <div class="spotify-card text-center p-4">
+            <i class="fas fa-paint-brush fa-3x mb-3 text-success"></i>
+            <h5>Web Design</h5>
+          </div>
+        </div>
+        <div class="col-6 col-md-3">
+          <div class="spotify-card text-center p-4">
+            <i class="fas fa-photo-film fa-3x mb-3 text-success"></i>
+            <h5>Video Editing</h5>
+          </div>
+        </div>
+        <div class="col-6 col-md-3">
+          <div class="spotify-card text-center p-4">
+            <i class="fas fa-camera-alt fa-3x mb-3 text-success"></i>
+            <h5>Fotografi</h5>
+          </div>
+        </div>
+        <div class="col-6 col-md-3">
+          <div class="spotify-card text-center p-4">
+            <i class="fa-solid fa-clone fa-3x mb-3 text-success"></i>
+            <h5>Post Design</h5>
+          </div>
+        </div>
+      </div>
+
+      <footer class="pt-5 pb-4 mt-5 border-top border-secondary">
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-md-6 mb-3">
+              <h5 class="fw-bold text-white">Tentang Website</h5>
+              <p class="text-secondary small">Website portofolio ini dibuat untuk memenuhi tugas akhir mata kuliah Desain Web. Didesain dengan tema Spotify menggunakan Bootstrap 5.</p>
+            </div>
+            <div class="col-md-6 mb-3 text-md-end">
+              <h5 class="fw-bold text-white">Hubungi Saya</h5>
+              <div class="d-flex gap-3 justify-content-md-end">
+                <a href="https://instagram.com" class="text-secondary text-decoration-none hover-white">
+                  <i class="fab fa-instagram fa-lg"></i>
+                </a>
+                <a href="https://linkedin.com" class="text-secondary text-decoration-none hover-white">
+                  <i class="fab fa-linkedin fa-lg"></i>
+                </a>
+                <a href="https://github.com" class="text-secondary text-decoration-none hover-white">
+                  <i class="fab fa-github fa-lg"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="text-center pt-3">
+            <p class="text-secondary small mb-0">&copy; 2025 Jardel Poliviera. All Rights Reserved.</p>
+          </div>
+        </div>
+      </footer>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>
