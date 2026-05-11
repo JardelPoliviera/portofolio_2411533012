@@ -1,87 +1,135 @@
+/* Ganti seluruh isi dari file custom.css Anda dengan kode ini */
+
 :root {
-  --gradient-start: #054018;
-  --gradient-end: #000000;
-  --bg-sidebar: #000000;
-  --bg-card: rgba(24, 24, 24, 0.6);
-  --bg-card-hover: rgba(40, 40, 40, 0.8);
+  /* Kaca diubah agar sedikit memantulkan warna putih/terang */
+  --bg-glass: rgba(255, 255, 255, 0.08);
+  --bg-glass-hover: rgba(255, 255, 255, 0.15);
+  --border-glass: rgba(255, 255, 255, 0.15);
   --text-primary: #ffffff;
-  --text-secondary: #b3b3b3;
-  --spotify-green: #1db954;
-  --contact-blue: #4a6cf7;
+  --text-secondary: rgba(235, 235, 245, 0.6);
+  --ios-accent: #0a84ff;
 }
 
 body {
-  font-family: "Circular Std", "Segoe UI", sans-serif;
-  background-color: var(--gradient-end);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+
+  /* Membuat "Wallpaper" hitam dengan pendaran cahaya (Mesh Gradient) ala iOS */
+  background-color: #000000;
+  background-image:
+    radial-gradient(circle at 10% 20%, rgba(10, 132, 255, 0.25), transparent 40%),
+    /* Pendaran Biru */ radial-gradient(circle at 90% 30%, rgba(94, 92, 230, 0.25), transparent 50%),
+    /* Pendaran Ungu */ radial-gradient(circle at 50% 100%, rgba(10, 132, 255, 0.15), transparent 50%); /* Pendaran Biru di Bawah */
+  background-attachment: fixed;
+  background-size: cover;
+
   color: var(--text-primary);
   overflow-x: hidden;
+  margin: 0;
 }
 
+/* --- SIDEBAR GLASSMORPHISM --- */
 .sidebar {
   height: 100vh;
-  background-color: var(--bg-sidebar);
+  background: rgba(10, 10, 10, 0.4);
+  backdrop-filter: blur(30px) saturate(150%);
+  -webkit-backdrop-filter: blur(30px) saturate(150%);
   padding-top: 20px;
   position: fixed;
   width: 240px;
   top: 0;
   left: 0;
   z-index: 1000;
-  border-right: 1px solid #1a1a1a;
+  border-right: 1px solid var(--border-glass);
 }
+
+/* --- SIDEBAR NAV-LINKS --- */
 .sidebar .nav-link {
-  color: var(--text-secondary);
-  font-weight: 600;
-  padding: 10px 25px;
+  color: var(--text-secondary) !important; /* Gunakan !important agar tidak ditimpa Bootstrap */
+  font-weight: 500;
+  padding: 12px 25px;
   display: flex;
   align-items: center;
   gap: 15px;
   text-decoration: none;
-  transition: 0.3s;
+  transition: all 0.3s ease;
+  border-radius: 12px;
+  margin: 0 15px 5px;
+  background: transparent !important;
 }
-.sidebar .nav-link:hover,
+
+/* Saat kursor diarahkan (Hover) */
+.sidebar .nav-link:hover {
+  color: var(--text-primary) !important;
+  background: var(--bg-glass-hover) !important;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Saat menu sedang aktif (Halaman saat ini) */
 .sidebar .nav-link.active {
-  color: var(--text-primary);
+  color: #ffffff !important;
+  background: var(--ios-accent) !important; /* Memakai warna biru iOS */
+  box-shadow: 0 4px 15px rgba(10, 132, 255, 0.3) !important;
+  border: 1px solid rgba(255, 255, 255, 0.1);
 }
+
+/* Memastikan warna icon di dalam menu ikut menyesuaikan */
+.sidebar .nav-link i,
+.sidebar .nav-link.active i {
+  color: inherit !important;
+}
+
 .brand-section {
   padding: 0 25px 20px;
 }
 
+/* --- MAIN CONTENT --- */
 .main-content {
   margin-left: 240px;
   padding: 20px;
   min-height: 100vh;
-  background: linear-gradient(180deg, var(--gradient-start) 0%, var(--gradient-end) 100%);
+  background: transparent;
 }
 
+/* --- KARTU PORTOFOLIO --- */
 .spotify-card {
-  background-color: var(--bg-card);
+  background: var(--bg-glass);
   padding: 15px;
-  border-radius: 8px;
-  transition: 0.3s;
+  border-radius: 24px;
+  transition: all 0.3s ease;
   height: 100%;
   cursor: pointer;
   display: block;
   text-decoration: none;
   color: inherit;
-  backdrop-filter: blur(10px);
+
+  backdrop-filter: blur(25px) saturate(180%);
+  -webkit-backdrop-filter: blur(25px) saturate(180%);
+  border: 1px solid var(--border-glass);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
 }
+
 .spotify-card:hover {
-  background-color: var(--bg-card-hover);
-  color: white;
+  background: var(--bg-glass-hover);
+  transform: translateY(-5px);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.2);
 }
+
 .spotify-card img {
-  border-radius: 6px;
+  border-radius: 16px;
   width: 100%;
   aspect-ratio: 1/1;
   object-fit: cover;
   margin-bottom: 15px;
 }
+
 .spotify-card h5 {
-  font-size: 1rem;
-  font-weight: 700;
+  font-size: 1.1rem;
+  font-weight: 600;
   margin-bottom: 5px;
   color: var(--text-primary);
 }
+
 .spotify-card p {
   font-size: 0.85rem;
   color: var(--text-secondary);
@@ -93,97 +141,115 @@ body {
   overflow: hidden;
 }
 
-.accordion-item {
-  background-color: transparent;
-  border: 1px solid #333;
-}
-.accordion-button {
-  background-color: var(--bg-card);
-  color: var(--text-primary);
-  box-shadow: none;
-}
-.accordion-button:not(.collapsed) {
-  background-color: var(--spotify-green);
-  color: black;
-  font-weight: bold;
-}
-.accordion-body {
-  background-color: rgba(0, 0, 0, 0.5);
-  color: var(--text-secondary);
+/* --- NAVBAR MOBILE --- */
+.navbar {
+  background: rgba(10, 10, 10, 0.5) !important;
+  backdrop-filter: blur(30px) saturate(150%);
+  -webkit-backdrop-filter: blur(30px) saturate(150%);
+  border-bottom: 1px solid var(--border-glass);
 }
 
+/* --- MODAL (POPUP LAPRAK) --- */
 .modal-content {
-  background-color: #181818;
+  background: rgba(30, 30, 30, 0.75);
+  backdrop-filter: blur(40px) saturate(200%);
+  -webkit-backdrop-filter: blur(40px) saturate(200%);
+  border: 1px solid var(--border-glass);
+  border-radius: 28px;
   color: white;
-  border: 1px solid #333;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
 }
+
 .modal-header,
 .modal-footer {
-  border-color: #333;
+  border-color: rgba(255, 255, 255, 0.1);
 }
 
-.btn-contact {
-  background-color: var(--spotify-green);
-  color: #000000;
-  border: 2px solid var(--spotify-green);
+/* --- PERBAIKAN TOMBOL & ICON --- */
+/* Hanya menargetkan elemen yang benar-benar tombol agar icon aman */
+.btn-contact,
+.btn-success {
+  background-color: var(--ios-accent) !important;
+  color: #ffffff !important;
+  border: none !important;
   border-radius: 50px;
   padding: 6px 25px;
   font-weight: 500;
   text-transform: uppercase;
   letter-spacing: 1px;
   transition: 0.3s;
-  cursor: pointer;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 4px 15px rgba(10, 132, 255, 0.3);
 }
 
-.btn-contact:hover {
-  background-color: #1ed760;
-  border-color: #1ed760;
-  color: #000000;
+.btn-contact:hover,
+.btn-success:hover {
+  background-color: #0070e0 !important;
   transform: scale(1.05);
-  box-shadow: 0 0 25px rgba(29, 185, 84, 0.6);
+  box-shadow: 0 0 20px rgba(10, 132, 255, 0.6);
 }
 
-.contact-form-container {
-  background: rgba(0, 0, 0, 0.3);
-  padding: 40px;
-  border-radius: 15px;
-  backdrop-filter: blur(5px);
-}
-.form-control-line {
-  border: none;
-  border-bottom: 2px solid #555;
-  border-radius: 0;
-  background: transparent;
-  padding: 15px 0;
-  margin-bottom: 30px;
-  font-weight: 500;
-  color: #b3b3b3 !important;
+/* Perbaikan Icon text-success agar tidak terblok warna */
+.text-success {
+  color: var(--ios-accent) !important;
+  background-color: transparent !important;
 }
 
-.form-control-line::placeholder {
-  color: #b3b3b3 !important;
-  opacity: 1;
+/* Perbaikan Icon Sosial Media agar kontras dan menyala saat di-hover */
+.hover-white {
+  transition: color 0.3s ease;
+}
+.hover-white:hover,
+.hover-white:hover i {
+  color: var(--text-primary) !important;
 }
 
-.form-control-line:focus {
-  background: transparent;
-  box-shadow: none;
-  border-color: var(--spotify-green);
-  color: #ffffff;
+/* Tombol Filter di Portofolio */
+.filter-btn {
+  background: var(--bg-glass) !important;
+  color: var(--text-primary) !important;
+  border: 1px solid var(--border-glass) !important;
+  backdrop-filter: blur(10px);
+}
+.filter-btn:hover {
+  background: var(--bg-glass-hover) !important;
 }
 
-.hover-white:hover {
+/* ========================================================= */
+/* --- PERBAIKAN ICON YANG MENJADI KOTAK / BLOK WARNA --- */
+/* ========================================================= */
+
+/* 1. Menghapus warna latar belakang yang menempel pada ikon */
+i,
+.sidebar .nav-link i,
+.navbar-brand i {
+  background-color: transparent !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+}
+
+/* 2. Memaksa ketebalan font untuk ikon Solid (Wajib 900 agar tidak jadi kotak) */
+.sidebar .nav-link i,
+i.fas,
+i.fa-solid,
+i.fa {
+  font-family: "Font Awesome 6 Free", "Font Awesome 5 Free", "FontAwesome" !important;
+  font-weight: 900 !important;
+}
+
+/* 3. Memaksa ketebalan font untuk ikon Brands seperti Spotify (Wajib 400) */
+i.fab,
+i.fa-brands {
+  font-family: "Font Awesome 6 Brands", "Font Awesome 5 Brands" !important;
+  font-weight: 400 !important;
+}
+
+/* 4. Memastikan ikon pada menu yang sedang aktif selalu putih bersih */
+.sidebar .nav-link.active i {
   color: #ffffff !important;
-  transition: 0.3s;
 }
 
-@media (max-width: 768px) {
-  .sidebar {
-    display: none;
-  }
-  .main-content {
-    margin-left: 0;
-    padding-top: 70px;
-  }
+/* 5. Mengubah warna ikon logo agar mengikuti biru iOS (bukan hijau lagi) */
+.navbar-brand i.text-success,
+i.text-success {
+  color: var(--ios-accent) !important;
 }
