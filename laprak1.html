@@ -8,8 +8,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
     <link rel="stylesheet" href="css/custom.css" />
   </head>
-  <body>
-    <nav class="navbar navbar-dark bg-black fixed-top d-md-none">
+  <body class="bg-black text-white">
+    <nav class="navbar navbar-dark bg-black fixed-top d-md-none border-bottom border-secondary">
       <div class="container-fluid">
         <a class="navbar-brand fw-bold" href="#"><i class="text-success"></i> My Portfolio</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mobileMenu">
@@ -19,29 +19,29 @@
           <ul class="navbar-nav ms-auto">
             <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
             <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
-            <li class="nav-item"><a class="nav-link" href="portofolio.html">Portfolio</a></li>
+            <li class="nav-item"><a class="nav-link active" href="portofolio.html">Portfolio</a></li>
             <li class="nav-item"><a class="nav-link" href="kontak.html">Contact</a></li>
           </ul>
         </div>
       </div>
     </nav>
 
-    <nav class="sidebar d-none d-md-flex flex-column">
-      <div class="brand-section mb-4">
-        <h4><i class="text-success"></i>Arel'S Portofolio</h4>
+    <nav class="sidebar d-none d-md-flex flex-column bg-black border-end border-secondary">
+      <div class="brand-section mb-4 p-4">
+        <h4><i class="text-success"></i> Arel's Portofolio</h4>
       </div>
-      <ul class="nav flex-column">
+      <ul class="nav flex-column px-3 gap-2">
         <li class="nav-item">
-          <a href="index.html" class="nav-link"><i class="fas fa-home"></i> Home</a>
+          <a href="index.html" class="nav-link text-secondary hover-white"><i class="fas fa-home me-2"></i> Home</a>
         </li>
         <li class="nav-item">
-          <a href="about.html" class="nav-link"><i class="fas fa-user"></i> About Me</a>
+          <a href="about.html" class="nav-link text-secondary hover-white"><i class="fas fa-user me-2"></i> About Me</a>
         </li>
         <li class="nav-item">
-          <a href="portofolio.html" class="nav-link"><i class="fas fa-book-open"></i> Portfolio</a>
+          <a href="portofolio.html" class="nav-link text-white fw-bold"><i class="fas fa-book-open me-2"></i> Portfolio</a>
         </li>
         <li class="nav-item">
-          <a href="kontak.html" class="nav-link"><i class="fas fa-envelope"></i> Contact</a>
+          <a href="kontak.html" class="nav-link text-secondary hover-white"><i class="fas fa-envelope me-2"></i> Contact</a>
         </li>
       </ul>
     </nav>
@@ -52,7 +52,7 @@
 
         <div class="p-5 mb-5 rounded-3 bg-gradient-dark border border-secondary shadow">
           <h1 class="display-5 fw-bold text-success">Laporan Praktikum 1</h1>
-          <p class="fs-5 text-secondary">Mata Kuliah: Pemrograman Web (HTML Dasar)</p>
+          <p class="fs-5 text-secondary">Mata Kuliah: Pemrograman Web</p>
           <hr class="my-4 border-secondary" />
           <div class="row text-secondary small">
             <div class="col-md-3"><strong>Disusun Oleh:</strong><br />Jardel Poliviera</div>
@@ -65,50 +65,68 @@
           <div class="col-lg-8">
             <section class="mb-5">
               <h3 class="fw-bold text-white border-bottom border-success pb-2 mb-3">1. Tujuan Praktikum</h3>
-              <p class="text-secondary lh-lg">Mahasiswa diharapkan mampu memahami konsep dasar HTML5, struktur dokumen, dan penggunaan tag-tag semantik untuk membangun kerangka website yang baik dan aksesibel.</p>
+              <p class="text-secondary lh-lg">
+                Tujuan utama dari praktikum ini adalah agar mahasiswa memiliki kemampuan teknis dalam melakukan instalasi framework Laravel serta mampu membuat proyek baru menggunakan framework tersebut. Selain aspek teknis instalasi,
+                mahasiswa diharapkan dapat mengenal struktur direktori yang ada di dalam Laravel dan memahami secara mendalam mengenai konsep arsitektur MVC (Model-View-Controller) yang menjadi landasan utama pengembangan aplikasi dengan
+                Laravel.
+              </p>
             </section>
 
             <section class="mb-5">
               <h3 class="fw-bold text-white border-bottom border-success pb-2 mb-3">2. Hasil & Pembahasan</h3>
               <p class="text-secondary lh-lg">
-                Pada praktikum ini, saya telah berhasil mengimplementasikan struktur dasar website menggunakan tag <code>&lt;header&gt;</code>, <code>&lt;main&gt;</code>, dan <code>&lt;footer&gt;</code>. Berikut adalah contoh kode yang
-                digunakan:
+                1. Install XAMPP : Download XAMPP pada link https://www.apachefriends.org/index.html kemudian install sesuai dengan Langkah-langkah wizard, setelah berhasil diiinstall maka akan muncul folder htdocs secara default pada
+                C:\xampp\htdocs yang nantinya akan digunakan untuk membuat project-project Laravel. Dengan menginstall XAMPP maka secara otomatis akan terinstall webserver apache, PHP dan PhpMyAdmin.
+              </p>
+              <p class="text-secondary lh-lg">
+                2. Install Composer : Composer merupakan package manager untuk PHP, composer akan digunakan untuk menambahkan package-package yang dibutuhkan pada saat development. Download compose pada link
+                https://getcomposer.org/Composer-Setup.exe, selanjutnya install sesuai dengan Langkah-langkah wizard.
+              </p>
+              <p class="text-secondary lh-lg">3. Install GIT : Silahkan download dan install GIT pada link berikut https://git-scm.com/downloads/win</p>
+              <p class="text-secondary lh-lg">
+                4. Install Node JS dan NPM : Node JS pada Laravel berfungsi untuk menangani masalah frontedn dan build asset UI (Library UI). Buka situs resmi node js https://nodejs.org/ kemudian download dan install sesuai dengan
+                Langkah-langkah wizard. NPM (Node Package Manager) yang berfungsi mengelola paket untuk ekosistem Javascript, NPM biasanya secara otomatis terinstall Ketika menginstall node js.
               </p>
 
-              <div class="bg-dark p-3 rounded border border-secondary mb-4 shadow-sm">
-                <div class="d-flex justify-content-between mb-2">
-                  <span class="small text-secondary">index.html</span>
-                  <i class="fab fa-html5 text-orange"></i>
-                </div>
-                <pre class="m-0 text-info" style="font-size: 14px"><code>&lt;!DOCTYPE html&gt;
-&lt;html&gt;
-  &lt;head&gt;
-    &lt;title&gt;Latihan Dasar&lt;/title&gt;
-  &lt;/head&gt;
-  &lt;body&gt;
-    &lt;h1&gt;Halo, ini laporan saya!&lt;/h1&gt;
-  &lt;/body&gt;
-&lt;/html&gt;</code></pre>
+              <div class="text-center my-4">
+                <img src="images/laprak1/ss1.png" alt="Screenshot Hasil Praktikum 1" class="img-fluid rounded border border-secondary shadow" />
               </div>
 
-              <p class="text-secondary lh-lg">Hasil tampilan dari kode di atas menunjukkan bahwa browser merender tag Heading 1 dengan ukuran font paling besar secara default...</p>
+              <p class="text-secondary lh-lg">menginstall laravel</p>
+
+              <div class="text-center my-4">
+                <img src="images/laprak1/ss2.png" alt="Screenshot Hasil Praktikum 1" class="img-fluid rounded border border-secondary shadow" />
+              </div>
+
+              <p class="text-secondary lh-lg">file project Laravel, disini nama projectnya adalah [praktikum_1]</p>
+              <p class="text-secondary lh-lg">setelah file project Laravel dibuat, kita dapat menjalankan perintah berikut untuk menginisialisasi project, disini menggunakan perintah php artisan serve</p>
+
+              <div class="text-center my-4">
+                <img src="images/laprak1/ss3.png" alt="Screenshot Hasil Praktikum 1" class="img-fluid rounded border border-secondary shadow mb-3" />
+                <br />
+                <img src="images/laprak1/ss4.png" alt="Screenshot Hasil Praktikum 1" class="img-fluid rounded border border-secondary shadow" style="max-width: 500px" />
+              </div>
+
+              <p class="text-secondary lh-lg">hasil dari running project Laravel dengan kode `php artisan serve` dari kode di atas adalah "hello world"</p>
             </section>
 
             <section class="mb-5">
               <h3 class="fw-bold text-white border-bottom border-success pb-2 mb-3">3. Kesimpulan</h3>
               <p class="text-secondary lh-lg">
-                Penggunaan elemen HTML yang tepat sangat krusial dalam pembuatan website. Memasukkan laporan langsung ke dalam web (seperti halaman ini) meningkatkan user experience dibandingkan hanya menggunakan format PDF.
+                Laravel merupakan framework PHP open-source yang sangat populer untuk pengembangan aplikasi web berbasis arsitektur MVC. Untuk menjalankan Laravel 12, sistem harus memenuhi kriteria tertentu, seperti versi PHP minimal 8.2
+                dan berbagai ekstensi PHP pendukung lainnya. Proses pengembangannya didukung oleh ekosistem alat seperti Composer sebagai package manager, Node.js untuk pengelolaan aset frontend, serta Artisan CLI yang memudahkan
+                otomatisasi tugas-tugas pengembangan. Dengan fitur-fitur modern seperti Eloquent ORM dan Blade Templating, Laravel memungkinkan pengembang untuk membangun aplikasi yang aman, skalabel, dan terorganisir dengan baik.
               </p>
             </section>
           </div>
 
           <div class="col-lg-4">
             <div class="card bg-dark border-secondary p-4 sticky-top" style="top: 20px">
-              <h5 class="fw-bold text-success mb-3">Detail Tugas</h5>
+              <h5 class="fw-bold text-success mb-3">Detail Praktikum</h5>
               <ul class="list-unstyled text-secondary small">
-                <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i> Validasi HTML5</li>
-                <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i> Responsif Design</li>
-                <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i> Integrasi Bootstrap</li>
+                <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i> Instalasi Laravel</li>
+                <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i> Pembuatan Proyek</li>
+                <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i> Konsep Arsitektur</li>
               </ul>
             </div>
           </div>
