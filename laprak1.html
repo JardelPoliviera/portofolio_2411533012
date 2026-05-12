@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Laporan Praktikum 1 - Portofolio</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <link rel="stylesheet" href="css/custom.css" />
+  </head>
+  <body>
+    <nav class="navbar navbar-dark bg-black fixed-top d-md-none">
+      <div class="container-fluid">
+        <a class="navbar-brand fw-bold" href="#"><i class="text-success"></i> My Portfolio</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mobileMenu">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="mobileMenu">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+            <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+            <li class="nav-item"><a class="nav-link" href="portofolio.html">Portfolio</a></li>
+            <li class="nav-item"><a class="nav-link" href="kontak.html">Contact</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <nav class="sidebar d-none d-md-flex flex-column">
+      <div class="brand-section mb-4">
+        <h4><i class="text-success"></i>Arel'S Portofolio</h4>
+      </div>
+      <ul class="nav flex-column">
+        <li class="nav-item">
+          <a href="index.html" class="nav-link"><i class="fas fa-home"></i> Home</a>
+        </li>
+        <li class="nav-item">
+          <a href="about.html" class="nav-link"><i class="fas fa-user"></i> About Me</a>
+        </li>
+        <li class="nav-item">
+          <a href="portofolio.html" class="nav-link"><i class="fas fa-book-open"></i> Portfolio</a>
+        </li>
+        <li class="nav-item">
+          <a href="kontak.html" class="nav-link"><i class="fas fa-envelope"></i> Contact</a>
+        </li>
+      </ul>
+    </nav>
+
+    <main class="main-content">
+      <div class="container py-5 px-4">
+        <a href="portofolio.html" class="btn btn-outline-light btn-sm mb-4"> <i class="fas fa-arrow-left me-2"></i> Kembali ke Portfolio </a>
+
+        <div class="p-5 mb-5 rounded-3 bg-gradient-dark border border-secondary shadow">
+          <h1 class="display-5 fw-bold text-success">Laporan Praktikum 1</h1>
+          <p class="fs-5 text-secondary">Mata Kuliah: Pemrograman Web (HTML Dasar)</p>
+          <hr class="my-4 border-secondary" />
+          <div class="row text-secondary small">
+            <div class="col-md-3"><strong>Disusun Oleh:</strong><br />Jardel Poliviera</div>
+            <div class="col-md-3"><strong>Tanggal:</strong><br />12 Mei 2026</div>
+            <div class="col-md-3"><strong>Status:</strong><br /><span class="badge bg-success">Selesai</span></div>
+          </div>
+        </div>
+
+        <div class="row g-5">
+          <div class="col-lg-8">
+            <section class="mb-5">
+              <h3 class="fw-bold text-white border-bottom border-success pb-2 mb-3">1. Tujuan Praktikum</h3>
+              <p class="text-secondary lh-lg">Mahasiswa diharapkan mampu memahami konsep dasar HTML5, struktur dokumen, dan penggunaan tag-tag semantik untuk membangun kerangka website yang baik dan aksesibel.</p>
+            </section>
+
+            <section class="mb-5">
+              <h3 class="fw-bold text-white border-bottom border-success pb-2 mb-3">2. Hasil & Pembahasan</h3>
+              <p class="text-secondary lh-lg">
+                Pada praktikum ini, saya telah berhasil mengimplementasikan struktur dasar website menggunakan tag <code>&lt;header&gt;</code>, <code>&lt;main&gt;</code>, dan <code>&lt;footer&gt;</code>. Berikut adalah contoh kode yang
+                digunakan:
+              </p>
+
+              <div class="bg-dark p-3 rounded border border-secondary mb-4 shadow-sm">
+                <div class="d-flex justify-content-between mb-2">
+                  <span class="small text-secondary">index.html</span>
+                  <i class="fab fa-html5 text-orange"></i>
+                </div>
+                <pre class="m-0 text-info" style="font-size: 14px"><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+  &lt;head&gt;
+    &lt;title&gt;Latihan Dasar&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;h1&gt;Halo, ini laporan saya!&lt;/h1&gt;
+  &lt;/body&gt;
+&lt;/html&gt;</code></pre>
+              </div>
+
+              <p class="text-secondary lh-lg">Hasil tampilan dari kode di atas menunjukkan bahwa browser merender tag Heading 1 dengan ukuran font paling besar secara default...</p>
+            </section>
+
+            <section class="mb-5">
+              <h3 class="fw-bold text-white border-bottom border-success pb-2 mb-3">3. Kesimpulan</h3>
+              <p class="text-secondary lh-lg">
+                Penggunaan elemen HTML yang tepat sangat krusial dalam pembuatan website. Memasukkan laporan langsung ke dalam web (seperti halaman ini) meningkatkan user experience dibandingkan hanya menggunakan format PDF.
+              </p>
+            </section>
+          </div>
+
+          <div class="col-lg-4">
+            <div class="card bg-dark border-secondary p-4 sticky-top" style="top: 20px">
+              <h5 class="fw-bold text-success mb-3">Detail Tugas</h5>
+              <ul class="list-unstyled text-secondary small">
+                <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i> Validasi HTML5</li>
+                <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i> Responsif Design</li>
+                <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i> Integrasi Bootstrap</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <footer class="mt-5 pt-5 border-top border-secondary">
+          <div class="row">
+            <div class="col-md-6 mb-3">
+              <h5 class="fw-bold text-white">Tentang Website</h5>
+              <p class="text-secondary small">Website portofolio ini dibuat untuk memenuhi tugas akhir mata kuliah Desain Web.</p>
+            </div>
+            <div class="col-md-6 text-md-end">
+              <p class="text-secondary small">&copy; 2025 Jardel Poliviera. All Rights Reserved.</p>
+            </div>
+          </div>
+        </footer>
+      </div>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>
