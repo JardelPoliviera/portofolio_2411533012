@@ -261,3 +261,18 @@ i.fa-brands {
 i.text-success {
   color: var(--ios-accent) !important;
 }
+
+/* Media query untuk layar HP (di bawah 768px) */
+@media (max-width: 767.98px) {
+  .main-content {
+    margin-left: 0 !important; /* Menghapus jarak sidebar di kiri */
+    padding-top: 80px !important; /* Memberikan jarak agar tidak tertutup Navbar Mobile */
+    padding-left: 15px !important; /* Memberikan sedikit ruang di sisi kiri */
+    padding-right: 15px !important; /* Memberikan sedikit ruang di sisi kanan */
+  }
+
+  /* Memastikan header laporan tidak terlalu besar di HP */
+  .display-5 {
+    font-size: 1.8rem; 
+  }
+}
