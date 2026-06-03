@@ -1,0 +1,210 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Laporan Praktikum 8 - Portofolio</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <link rel="stylesheet" href="css/custom.css" />
+  </head>
+  <body class="bg-black text-white">
+    <nav class="navbar navbar-dark bg-black fixed-top d-md-none border-bottom border-secondary">
+      <div class="container-fluid">
+        <a class="navbar-brand fw-bold" href="#"><i class="text-success"></i> My Portfolio</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mobileMenu">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="mobileMenu">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+            <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+            <li class="nav-item"><a class="nav-link active" href="portofolio.html">Portfolio</a></li>
+            <li class="nav-item"><a class="nav-link" href="kontak.html">Contact</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <nav class="sidebar d-none d-md-flex flex-column bg-black border-end border-secondary" style="position: fixed; top: 0; left: 0; width: 250px; height: 100vh; padding: 20px 0;">
+      <div class="brand-section mb-4 p-4">
+        <h4><i class="text-success"></i> Arel's Portofolio</h4>
+      </div>
+      <ul class="nav flex-column px-3 gap-2">
+        <li class="nav-item">
+          <a href="index.html" class="nav-link text-secondary hover-white"><i class="fas fa-home me-2"></i> Home</a>
+        </li>
+        <li class="nav-item">
+          <a href="about.html" class="nav-link text-secondary hover-white"><i class="fas fa-user me-2"></i> About Me</a>
+        </li>
+        <li class="nav-item">
+          <a href="portofolio.html" class="nav-link text-white fw-bold bg-dark rounded"><i class="fas fa-book-open me-2"></i> Portfolio</a>
+        </li>
+        <li class="nav-item">
+          <a href="kontak.html" class="nav-link text-secondary hover-white"><i class="fas fa-envelope me-2"></i> Contact</a>
+        </li>
+      </ul>
+    </nav>
+
+    <main class="main-content">
+      <div class="container py-5 px-4">
+        <a href="portofolio.html" class="btn btn-outline-light btn-sm mb-4"> <i class="fas fa-arrow-left me-2"></i> Kembali ke Portfolio </a>
+
+        <div class="p-5 mb-5 rounded-3 bg-gradient-dark border border-secondary shadow">
+          <h1 class="display-5 fw-bold text-success">Laporan Praktikum 7</h1>
+          <p class="fs-5 text-secondary">Mata Kuliah: Pemrograman Web</p>
+          <hr class="my-4 border-secondary" />
+          <div class="row text-secondary small">
+            <div class="col-md-3"><strong>Disusun Oleh:</strong><br />Jardel Poliviera</div>
+            <div class="col-md-3"><strong>Tanggal:</strong><br />27 Mei 2026</div>
+            <div class="col-md-3"><strong>Status:</strong><br /><span class="badge bg-success">Selesai</span></div>
+          </div>
+        </div>
+
+          <section>
+            <h3 class="text-success mt-4 mb-3 border-bottom border-secondary pb-2">1. Konfigurasi Database</h3>
+            <p class="text-secondary lh-lg">Buka file <code>.env</code> kemudian ubah konfigurasi database sebagai berikut:</p>
+            <div class="text-center my-4">
+              <img src="images/laprak7/ss1.png" alt="Konfigurasi Database" class="img-fluid border border-secondary rounded">
+            </div>
+
+            <h3 class="text-success mt-4 mb-3 border-bottom border-secondary pb-2">2. Migration</h3>
+            <p class="text-secondary lh-lg">
+              Migration adalah fitur Laravel yang digunakan untuk membuat dan mengelola struktur database menggunakan kode program. Migration memudahkan developer dalam:<br>
+              a. Membuat tabel<br>
+              b. Mengubah struktur tabel<br>
+              c. Menghapus tabel<br>
+              d. Versioning database
+            </p>
+            <p class="text-secondary lh-lg">Membuat tabel products menggunakan migration dengan perintah:</p>
+            <div class="bg-dark p-3 rounded mb-3 font-monospace text-light">php artisan make:migration create_products_table</div>
+            <div class="text-center my-4">
+              <img src="images/laprak7/ss2.png" alt="Membuat Migration" class="img-fluid border border-secondary rounded">
+            </div>
+            <p class="text-secondary lh-lg">File migration akan berada pada folder <code>database/migrations</code>:</p>
+            <div class="text-center my-4">
+              <img src="images/laprak7/ss3.png" alt="Folder Migration" class="img-fluid border border-secondary rounded">
+            </div>
+            <p class="text-secondary lh-lg">
+              Menjalankan migration menggunakan perintah <code>php artisan migrate</code>, setelah dijalankan perintah tersebut maka secara otomatis tabel products akan terbentuk secara otomatis.<br><br>
+              <strong>Catatan tambahan:</strong><br>
+              - <code>php artisan migrate:rollback</code> digunakan untuk membatalkan migration.<br>
+              - <code>php artisan migrate:fresh</code> digunakan untuk menjalankan ulang seluruh migration.
+            </p>
+
+            <h3 class="text-success mt-4 mb-3 border-bottom border-secondary pb-2">3. Seeding</h3>
+            <p class="text-secondary lh-lg">
+              Seeding digunakan untuk mengisi data awal ke database. Seeder sangat membantu saat: a. Pengujian aplikasi b. Membuat data dummy c. Menyiapkan data awal system.
+            </p>
+            <p class="text-secondary lh-lg">Membuat Seeder. Jalankan perintah berikut:</p>
+            <div class="bg-dark p-3 rounded mb-3 font-monospace text-light">php artisan make:seeder ProductSeeder</div>
+            <div class="text-center my-4">
+              <img src="images/laprak7/ss4.png" alt="Membuat Seeder" class="img-fluid border border-secondary rounded">
+            </div>
+            <p class="text-secondary lh-lg">Membuat Data Seeder. Buka file <code>ProductSeeder.php</code>, kemudian ubah menjadi:</p>
+            <div class="text-center my-4">
+              <img src="images/laprak7/ss5.png" alt="Kode Seeder" class="img-fluid border border-secondary rounded">
+            </div>
+            <p class="text-secondary lh-lg">
+              Menjalankan Seeder. Tambahkan pemanggilan seeder pada file <code>DatabaseSeeder.php</code>: <br>
+              <code>$this->call(ProductSeeder::class);</code><br>
+              Selanjutnya jalankan perintah <code>php artisan db:seed</code>. Jika ingin menjalankan migration dan seeding bersamaan jalankan perintah berikut:
+            </p>
+            <div class="bg-dark p-3 rounded mb-3 font-monospace text-light">php artisan migrate:fresh --seed</div>
+            <div class="text-center my-4">
+              <img src="images/laprak7/ss6.png" alt="Menjalankan Seeder" class="img-fluid border border-secondary rounded">
+            </div>
+
+            <h3 class="text-success mt-4 mb-3 border-bottom border-secondary pb-2">4. Routing</h3>
+            <p class="text-secondary lh-lg">
+              Routing digunakan untuk menentukan URL dan respon yang diberikan aplikasi. Semua routing web berada pada file: <code>routes/web.php</code>.
+            </p>
+            <div class="text-center my-4">
+              <img src="images/laprak7/ss7.png" alt="Routing Laravel" class="img-fluid border border-secondary rounded">
+            </div>
+
+            <h3 class="text-success mt-4 mb-3 border-bottom border-secondary pb-2">5. Model</h3>
+            <p class="text-secondary lh-lg">
+              Model digunakan untuk berinteraksi dengan database. Laravel menggunakan Eloquent ORM untuk mempermudah manipulasi data. Struktur Model Silahkan buka file <code>Product.php</code>:
+            </p>
+            <div class="text-center my-4">
+              <img src="images/laprak7/ss8.png" alt="Struktur Model" class="img-fluid border border-secondary rounded">
+            </div>
+
+            <h3 class="text-success mt-4 mb-3 border-bottom border-secondary pb-2">6. Controller</h3>
+            <p class="text-secondary lh-lg">
+              Controller digunakan untuk mengatur logika aplikasi. Controller menjadi penghubung antara:<br>
+              a. Model<br>
+              b. View<br>
+              c. Request user
+            </p>
+            <div class="text-center my-4">
+              <img src="images/laprak7/ss9.png" alt="Membuat Controller" class="img-fluid border border-secondary rounded">
+            </div>
+            <div class="text-center my-4">
+              <img src="images/laprak7/ss10.png" alt="Isi Controller" class="img-fluid border border-secondary rounded">
+            </div>
+
+            <h3 class="text-success mt-4 mb-3 border-bottom border-secondary pb-2">7. View & Layout</h3>
+            <p class="text-secondary lh-lg">
+              Buat folder <code>layouts</code> di dalam <code>resources/views/</code>. Lalu buat file <code>app.blade.php</code> di dalamnya dan isi dengan kode ini:
+            </p>
+            <div class="text-center my-4">
+              <img src="images/laprak7/ss11.png" alt="Layout app.blade.php" class="img-fluid border border-secondary rounded">
+            </div>
+            <p class="text-secondary lh-lg">
+              Buat View Products. Buat file <code>products.blade.php</code> di dalam folder <code>resources/views/</code>, lalu gunakan layout tadi:
+            </p>
+            <div class="text-center my-4">
+              <img src="images/laprak7/ss12.png" alt="View Products" class="img-fluid border border-secondary rounded">
+            </div>
+            <p class="text-secondary lh-lg">
+              Hasil outputnya adalah:
+            </p>
+            <div class="text-center my-4">
+              <img src="images/laprak7/ss13.png" alt="Hasil Output" class="img-fluid border border-secondary rounded">
+            </div>
+          </section>
+        </div>
+
+        <div class="col-lg-4">
+          <div class="card bg-dark border-secondary p-4 sticky-top" style="top: 20px">
+            <h5 class="fw-bold text-success mb-3">Detail Praktikum 7</h5>
+            <ul class="list-unstyled text-secondary small">
+              <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i> Konfigurasi DB</li>
+              <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i> Migration & Seeder</li>
+              <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i> Routing</li>
+              <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i> MVC (Model, View, Controller)</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <footer class="mt-5 pt-5 border-top border-secondary">
+        <div class="row">
+          <div class="col-md-6 mb-3">
+            <h5 class="fw-bold text-white">Tentang Website</h5>
+            <p class="text-secondary small">Website portofolio ini dibuat untuk memenuhi tugas akhir mata kuliah Desain Web.</p>
+          </div>
+          <div class="col-md-6 text-md-end">
+            <p class="text-secondary small">&copy; 2026 Arel. All Rights Reserved.</p>
+          </div>
+        </div>
+      </footer>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <style>
+      /* Style untuk memastikan margin main konten di mobile tidak terpotong */
+      @media (max-width: 767.98px) {
+        main.container-fluid {
+          margin-left: 0 !important;
+          padding-top: 80px !important;
+        }
+      }
+      .hover-white:hover {
+        color: white !important;
+      }
+    </style>
+  </body>
+</html>
