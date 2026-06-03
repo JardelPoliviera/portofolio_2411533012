@@ -89,7 +89,7 @@ body {
   min-height: 100vh;
   background: transparent;
 }
- 
+
 /* --- TAMPILAN MOBILE (HP) --- */
 @media (max-width: 767.98px) {
   .main-content {
@@ -273,6 +273,105 @@ i.text-success {
 
   /* Memastikan header laporan tidak terlalu besar di HP */
   .display-5 {
-    font-size: 1.8rem; 
+    font-size: 1.8rem;
   }
+}
+
+.accordion-item {
+  background: var(--bg-glass) !important;
+  border: 1px solid var(--border-glass) !important;
+  backdrop-filter: blur(25px) saturate(180%);
+  -webkit-backdrop-filter: blur(25px) saturate(180%);
+  color: var(--text-primary) !important;
+  margin-bottom: 12px; /* Memberi jarak antar kotak agar lebih rapi */
+  border-radius: 16px !important; /* Membuat sudut membulat */
+  overflow: hidden;
+}
+
+/* Memperbaiki border bawaan Bootstrap yang suka bertabrakan */
+.accordion-item:not(:first-of-type) {
+  border-top: 1px solid var(--border-glass) !important;
+}
+
+/* Mengubah area tombol yang bisa diklik */
+.accordion-button {
+  background: transparent !important;
+  color: var(--text-primary) !important;
+  box-shadow: none !important; /* Menghilangkan garis biru saat diklik */
+  font-weight: 500;
+}
+
+/* Mengubah gaya saat accordion sedang terbuka */
+.accordion-button:not(.collapsed) {
+  background: var(--bg-glass-hover) !important;
+  color: var(--ios-accent) !important; /* Teks menjadi biru iOS saat aktif */
+  box-shadow: none !important;
+}
+
+/* MENGUBAH WARNA PANAH ACCORDION (Dari hitam menjadi putih) */
+.accordion-button::after {
+  filter: brightness(0) invert(1);
+}
+
+/* Mengubah panah menjadi biru iOS saat terbuka */
+.accordion-button:not(.collapsed)::after {
+  filter: brightness(0) saturate(100%) invert(43%) sepia(97%) saturate(3088%) hue-rotate(192deg) brightness(102%) contrast(106%);
+}
+
+/* Mengatur area isi konten accordion */
+.accordion-body {
+  background: transparent !important;
+  color: var(--text-secondary);
+  border-top: 1px solid var(--border-glass) !important;
+}
+
+.form-control,
+.form-select {
+  background: var(--bg-glass) !important;
+  border: 1px solid var(--border-glass) !important;
+  backdrop-filter: blur(25px) saturate(180%);
+  -webkit-backdrop-filter: blur(25px) saturate(180%);
+  color: var(--text-primary) !important;
+  border-radius: 12px; /* Membuat sudut form membulat elegan */
+  padding: 12px 15px; /* Memberi ruang agar teks tidak terlalu menempel ke tepi */
+  transition: all 0.3s ease;
+}
+
+/* Mengubah warna teks panduan (placeholder) seperti "Name *", "Message *" agar lebih redup/abu-abu */
+.form-control::placeholder {
+  color: var(--text-secondary) !important;
+  opacity: 1;
+}
+
+/* Gaya saat form sedang diklik / saat pengguna mengetik (Focus) */
+.form-control:focus,
+.form-select:focus {
+  background: var(--bg-glass-hover) !important;
+  border-color: var(--ios-accent) !important; /* Garis tepi berubah biru iOS */
+  box-shadow: 0 0 15px rgba(10, 132, 255, 0.3) !important; /* Efek cahaya biru/glowing */
+  color: var(--text-primary) !important;
+}
+
+/* Memperbaiki warna opsi pada dropdown "Select Subject" agar teks putihnya tetap terbaca */
+.form-select option {
+  background-color: #1a1a1a;
+  color: #ffffff;
+}
+
+/* --- GAYA UNTUK CHECKBOX (Terms and Conditions) --- */
+.form-check-input {
+  background-color: var(--bg-glass) !important;
+  border: 1px solid var(--border-glass) !important;
+  cursor: pointer;
+}
+
+/* Gaya saat checkbox dicentang */
+.form-check-input:checked {
+  background-color: var(--ios-accent) !important;
+  border-color: var(--ios-accent) !important;
+}
+
+/* Warna teks di sebelah checkbox */
+.form-check-label {
+  color: var(--text-secondary);
 }
