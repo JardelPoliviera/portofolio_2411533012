@@ -1,0 +1,183 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Laporan Praktikum 9 - Portofolio</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <link rel="stylesheet" href="css/custom.css" />
+  </head>
+  <body class="bg-black text-white">
+    <nav class="navbar navbar-dark bg-black fixed-top d-md-none border-bottom border-secondary">
+      <div class="container-fluid">
+        <a class="navbar-brand fw-bold" href="#"><i class="text-success"></i> My Portfolio</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mobileMenu">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="mobileMenu">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+            <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+            <li class="nav-item"><a class="nav-link active" href="portofolio.html">Portfolio</a></li>
+            <li class="nav-item"><a class="nav-link" href="kontak.html">Contact</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <nav class="sidebar d-none d-md-flex flex-column bg-black border-end border-secondary" style="position: fixed; top: 0; left: 0; width: 250px; height: 100vh; padding: 20px 0;">
+      <div class="brand-section mb-4 p-4">
+        <h4><i class="text-success"></i> Arel's Portofolio</h4>
+      </div>
+      <ul class="nav flex-column px-3 gap-2">
+        <li class="nav-item">
+          <a href="index.html" class="nav-link text-secondary hover-white"><i class="fas fa-home me-2"></i> Home</a>
+        </li>
+        <li class="nav-item">
+          <a href="about.html" class="nav-link text-secondary hover-white"><i class="fas fa-user me-2"></i> About Me</a>
+        </li>
+        <li class="nav-item">
+          <a href="portofolio.html" class="nav-link text-white fw-bold bg-dark rounded"><i class="fas fa-book-open me-2"></i> Portfolio</a>
+        </li>
+        <li class="nav-item">
+          <a href="kontak.html" class="nav-link text-secondary hover-white"><i class="fas fa-envelope me-2"></i> Contact</a>
+        </li>
+      </ul>
+    </nav>
+
+    <main class="main-content">
+      <div class="container py-5 px-4">
+        <a href="portofolio.html" class="btn btn-outline-light btn-sm mb-4"> <i class="fas fa-arrow-left me-2"></i> Kembali ke Portfolio </a>
+
+        <div class="p-5 mb-5 rounded-3 bg-gradient-dark border border-secondary shadow">
+          <h1 class="display-5 fw-bold text-success">Laporan Praktikum 9</h1>
+          <p class="fs-5 text-secondary">Mata Kuliah: Pemrograman Web</p>
+          <hr class="my-4 border-secondary" />
+          <div class="row text-secondary small">
+            <div class="col-md-3"><strong>Disusun Oleh:</strong><br />Jardel Poliviera</div>
+            <div class="col-md-3"><strong>Tanggal:</strong><br />3 Juni 2026</div>
+            <div class="col-md-3"><strong>Status:</strong><br /><span class="badge bg-success">Selesai</span></div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-lg-8">
+            <section>
+              <h3 class="text-success mt-4 mb-3 border-bottom border-secondary pb-2">1. Pembuatan Project dan Konfigurasi Database</h3>
+              <p class="text-secondary lh-lg">Langkah awal dimulai dengan membuat project Laravel baru bernama <code>laravel-sisfo</code> menggunakan Composer melalui perintah:</p>
+              <div class="bg-dark p-3 rounded mb-3 font-monospace text-light">composer create-project laravel/laravel=^9.0 laravel-sisfo --prefer-dist</div>
+              <p class="text-secondary lh-lg">Setelah project berhasil digenerate, konfigurasi database disesuaikan pada file <code>.env</code> dengan mengatur parameter koneksi <code>DB_DATABASE=laravel_sisfo</code>. Project kemudian dijalankan menggunakan perintah <code>php artisan serve</code>.</p>
+
+              <h3 class="text-success mt-4 mb-3 border-bottom border-secondary pb-2">2. Implementasi User Authentication dan Bootstrap Scaffolding</h3>
+              <p class="text-secondary lh-lg">Sesuai dengan panduan pada modul "Laravel UI Bootstrap dan Templating", otentikasi bawaan diaktifkan dengan menginstal package <code>laravel/ui</code>. Perintah berikut dieksekusi untuk menambahkan scaffolding Bootstrap beserta modul auth:</p>
+              <div class="bg-dark p-3 rounded mb-3 font-monospace text-light">
+                composer require laravel/ui<br>
+                php artisan ui bootstrap --auth<br>
+                npm install && npm run dev
+              </div>
+              <p class="text-secondary lh-lg">Proses ini secara otomatis mengenerate struktur Controller Auth (seperti LoginController, RegisterController) serta struktur views di dalam folder <code>auth/</code> dan <code>layouts/app.blade.php</code>. Selanjutnya, perintah <code>php artisan migrate</code> dijalankan untuk membuat tabel-tabel bawaan ke dalam database MySQL.</p>
+              <p class="text-secondary lh-lg fw-bold">Hasil Langkah 2 (Halaman Login Default):</p>
+              <p class="text-secondary lh-lg">Berikut adalah tampilan antarmuka halaman login default Laravel setelah dicompile menggunakan Bootstrap sebelum diterapkan kustomisasi template eksternal.</p>
+              <div class="text-center my-4">
+                <img src="images/laprak9/ss1.png" alt="Halaman Login Default" class="img-fluid border border-secondary rounded">
+              </div>
+
+              <h3 class="text-success mt-4 mb-3 border-bottom border-secondary pb-2">3. Kustomisasi Tabel User dan Database Seeding</h3>
+              <p class="text-secondary lh-lg">Struktur default tabel users bawaan Laravel dimodifikasi dengan menambahkan beberapa fields baru yang krusial untuk Sistem Informasi Sekolah, yaitu <code>username</code>, <code>level</code>, dan <code>status</code>. Modifikasi ini dilakukan dengan membuat file migrasi baru menggunakan perintah:</p>
+              <div class="bg-dark p-3 rounded mb-3 font-monospace text-light">php artisan make:migration costum_table_users</div>
+              <p class="text-secondary lh-lg">Setelah mengubah skema tabel di dalam file migration, pembuatan user administrator pertama diselesaikan memanfaatkan fitur seeding. File <code>AdminSeeder.php</code> dibuat dan diisi dengan akun admin default, kemudian dieksekusi menggunakan:</p>
+              <div class="bg-dark p-3 rounded mb-3 font-monospace text-light">php artisan db:seed --class AdminSeeder</div>
+
+              <h3 class="text-success mt-4 mb-3 border-bottom border-secondary pb-2">4. Templating dan Layouting (Integrasi SB Admin 2)</h3>
+              <p class="text-secondary lh-lg">Proses integrasi tampilan grafis (UI) dilakukan dengan mengadopsi template berbasis Bootstrap, yaitu SB Admin 2. Seluruh aset statis ditempatkan di dalam direktori <code>public/sbadmin</code>. Layout global utama dipisahkan ke dalam file <code>view/layouts/main.blade.php</code>, yang memanggil komponen <code>sidebar.blade.php</code> dan <code>topbar.blade.php</code> melalui direktif <code>@include</code>, serta menyediakan penampung dinamis berupa <code>@yield('judul')</code> dan <code>@yield('konten')</code>.</p>
+              
+              <p class="text-secondary lh-lg fw-bold mt-4">Hasil Langkah 4 (Halaman Login Berhasil Dikustomisasi):</p>
+              <p class="text-secondary lh-lg">Setelah melakukan kustomisasi kode program pada file <code>app.blade.php</code>, tampilan halaman login berubah sepenuhnya menggunakan visualisasi gradasi biru dan form terpusat khas template SB Admin 2.</p>
+              <div class="text-center my-4">
+                <img src="images/laprak9/ss2.png" alt="Halaman Login Kustom" class="img-fluid border border-secondary rounded">
+              </div>
+
+              <p class="text-secondary lh-lg fw-bold">Hasil Langkah 4 (Halaman Utama Dashboard SISFO):</p>
+              <p class="text-secondary lh-lg">Ketika pengguna berhasil melakukan autentikasi login ke dalam sistem, aplikasi akan mengarahkan pengguna menuju halaman Dashboard utama yang telah terintegrasi dengan tata letak SB Admin 2 secara rapi dan responsif.</p>
+              <div class="text-center my-4">
+                <img src="images/laprak9/ss3.png" alt="Dashboard SISFO" class="img-fluid border border-secondary rounded">
+              </div>
+
+              <p class="text-secondary lh-lg fw-bold">Hasil Langkah 4 (Dropdown User Informasi pada Topbar):</p>
+              <p class="text-secondary lh-lg">Komponen navigasi atas (<code>topbar.blade.php</code>) berhasil menampilkan nama user yang sedang aktif beserta interaksi menu dropdown profil, pengaturan, dan tombol logout.</p>
+              <div class="text-center my-4">
+                <img src="images/laprak9/ss4.png" alt="Dropdown User" class="img-fluid border border-secondary rounded">
+              </div>
+
+              <h3 class="text-success mt-4 mb-3 border-bottom border-secondary pb-2">5. Pengembangan Fitur CRUD Manajemen Users</h3>
+              <p class="text-secondary lh-lg">Modul manajemen data user dibangun menggunakan resource controller melalui eksekusi perintah:</p>
+              <div class="bg-dark p-3 rounded mb-3 font-monospace text-light">php artisan make:controller UserController --resource</div>
+              <p class="text-secondary lh-lg">Dan didaftarkan pada file routing <code>routes/web.php</code> menggunakan perintah <code>Route::resource('users', UserController::class);</code>.</p>
+
+              <h5 class="text-light mt-4">A. Create (Tambah User)</h5>
+              <p class="text-secondary lh-lg">Halaman tambah user memanfaatkan komponen input teks dan select option bergaya ganda (multiple select) menggunakan pustaka Javascript Select2 untuk mendefinisikan level hak akses user. Berikut adalah pengisian form saat menambahkan data user baru:</p>
+              <div class="text-center my-4">
+                <img src="images/laprak9/ss5.png" alt="Form Tambah User" class="img-fluid border border-secondary rounded">
+              </div>
+
+              <h5 class="text-light mt-4">B. Read (Menampilkan Data User & Notifikasi Berhasil)</h5>
+              <p class="text-secondary lh-lg">Data yang dikirimkan melalui form input diproses oleh fungsi <code>store()</code> di dalam controller untuk disimpan ke dalam database. Sistem kemudian mengalihkan halaman (redirect) kembali menuju indeks daftar user sembari mengirimkan sebuah sesi status berupa alert sukses. Berikut merupakan visualisasi tabel daftar user yang terintegrasi dengan DataTables beserta alert sukses:</p>
+              <div class="text-center my-4">
+                <img src="images/laprak9/ss6.png" alt="Tabel Daftar User" class="img-fluid border border-secondary rounded">
+              </div>
+
+              <h5 class="text-light mt-4">C. Update & Delete (Ubah & Hapus Data)</h5>
+              <p class="text-secondary lh-lg mb-5">Proses manipulasi data lanjutan diselesaikan dengan menyediakan tombol aksi "Edit" yang mengarah ke metode <code>edit()</code> untuk memperbarui kolom nama atau level user, serta tombol "Hapus" yang memanfaatkan form bermetode DELETE dan konfirmasi pop-up JavaScript sebelum memicu fungsi <code>destroy()</code> pada controller untuk menghapus entitas data dari database.</p>
+            </section>
+          </div>
+
+          <div class="col-lg-4">
+            <div class="card bg-dark border-secondary p-4 sticky-top" style="top: 20px">
+              <h5 class="fw-bold text-success mb-3">Detail Praktikum 9</h5>
+              <ul class="list-unstyled text-secondary small">
+                <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i> Pembuatan Project DB</li>
+                <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i> Auth & Scaffolding</li>
+                <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i> Migrasi & Seeder</li>
+                <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i> Integrasi SB Admin 2</li>
+                <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i> CRUD Manajemen Users</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer class="mt-5 pt-5 border-top border-secondary">
+        <div class="container px-4">
+          <div class="row">
+            <div class="col-md-6 mb-3">
+              <h5 class="fw-bold text-white">Tentang Website</h5>
+              <p class="text-secondary small">Website portofolio Jardel Poliviera.</p>
+            </div>
+            <div class="col-md-6 text-md-end">
+              <p class="text-secondary small">&copy; 2026 Arel. All Rights Reserved.</p>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <style>
+      @media (max-width: 767.98px) {
+        main.main-content {
+          margin-left: 0 !important;
+          padding-top: 80px !important;
+        }
+      }
+      @media (min-width: 768px) {
+        main.main-content {
+          margin-left: 250px;
+        }
+      }
+      .hover-white:hover {
+        color: white !important;
+      }
+    </style>
+  </body>
+</html>
