@@ -49,12 +49,100 @@
     <main class="main-content">
       <div class="p-5 mb-4 rounded-3 text-white" style="background: rgba(0, 0, 0, 0.3)">
         <div class="container-fluid py-5">
-          <h1 class="display-5 fw-bold">Jardel Poliviera Portofolio</h1>
-          <p class="col-md-8 fs-4">Mahasiswa Informatika yang memiliki ketertarikan pada Video Editing.</p>
-          <a href="portofolio.html" class="btn btn-success btn-lg rounded-pill px-4 mt-3">Lihat Portfolio</a>
-          <a href="kontak.html" class="btn btn-outline-light btn-lg rounded-pill px-4 mt-3 ms-2">Hubungi Saya</a>
+          <div class="row align-items-center g-4">
+            <!-- SISI KIRI: Teks Utama & Tombol Portofolio -->
+            <div class="col-lg-8 col-md-7">
+              <h1 class="display-5 fw-bold">Jardel Poliviera Portofolio</h1>
+              <p class="fs-4">Mahasiswa Informatika yang memiliki ketertarikan pada Video Editing.</p>
+              <a href="portofolio.html" class="btn btn-success btn-lg rounded-pill px-4 mt-3">Lihat Portfolio</a>
+              <a href="kontak.html" class="btn btn-outline-light btn-lg rounded-pill px-4 mt-3 ms-2">Hubungi Saya</a>
+            </div>
+
+            <!-- SISI KANAN: Glassmorphic Instagram Card Premium -->
+            <div class="col-lg-4 col-md-5 d-flex justify-content-md-end justify-content-center">
+              <a href="https://www.instagram.com/areljrdl/" target="_blank" rel="noopener noreferrer" class="instagram-glass-card">
+                <div class="glass-glow"></div>
+
+                <!-- Bagian Atas: Avatar & Identitas Akun -->
+                <div class="instagram-header">
+                  <div class="avatar-container">
+                    <div class="avatar-gradient-border">
+                      <!-- Jalur gambar diatur ke format HEIC milikmu -->
+                      <img src="images/arel.jpg" alt="Jardel Poliviera" class="instagram-avatar-img" />
+                    </div>
+                    <div class="instagram-badge">
+                      <i class="fa-brands fa-instagram"></i>
+                    </div>
+                  </div>
+                  <div class="instagram-user-info">
+                    <span class="ig-display-name">Jardel Poliviera</span>
+                    <span class="ig-username">@areljrdl</span>
+                  </div>
+                </div>
+
+                <!-- Bagian Tengah: Bio & Deck Mini Software Editing -->
+                <div class="instagram-body">
+                  <p class="ig-bio">Informatics Engineering Student<br />Video Editor & Designer</p>
+
+                  <div class="tool-deck-container mt-4">
+                    <div class="tool-deck-row">
+                      <!-- CapCut -->
+                      <div class="tool-item">
+                        <div class="tool-badge" title="CapCut">
+                          <svg viewBox="0 0 24 24" class="icon-capcut">
+                            <rect x="1.5" y="1.5" width="21" height="21" rx="5" fill="none" stroke="currentColor" stroke-width="2" />
+                            <text x="12" y="15.5" font-family="Arial, sans-serif" font-weight="900" font-size="10" text-anchor="middle">Cc</text>
+                          </svg>
+                        </div>
+                        <span class="tool-label">CapCut</span>
+                      </div>
+
+                      <!-- Figma -->
+                      <div class="tool-item">
+                        <div class="tool-badge" title="Figma">
+                          <svg viewBox="0 0 24 24" class="icon-figma">
+                            <path
+                              d="M8 24c2.21 0 4-1.79 4-4v-4H8c-2.21 0-4 1.79-4 4s1.79 4 4 4zM4 12c0 2.21 1.79 4 4 4h4v-8H8c-2.21 0-4 1.79-4 4zm0-8c0 2.21 1.79 4 4 4h4V0H8c-2.21 0-4 1.79-4 4zm12 4c0-2.21-1.79-4-4-4h-4v8h4c2.21 0 4-1.79 4-4zm-4 8c2.21 0 4-1.79 4-4s-1.79-4-4-4v8z"
+                            />
+                          </svg>
+                        </div>
+                        <span class="tool-label">Figma</span>
+                      </div>
+
+                      <!-- After Effects -->
+                      <div class="tool-item">
+                        <div class="tool-badge" title="After Effects">
+                          <svg viewBox="0 0 24 24" class="icon-ae">
+                            <rect x="1.5" y="1.5" width="21" height="21" rx="5" fill="none" stroke="currentColor" stroke-width="2" />
+                            <text x="12" y="15.5" font-family="Arial, sans-serif" font-weight="900" font-size="10" text-anchor="middle">Ae</text>
+                          </svg>
+                        </div>
+                        <span class="tool-label">After Effects</span>
+                      </div>
+
+                      <!-- Alight Motion -->
+                      <div class="tool-item">
+                        <div class="tool-badge" title="Alight Motion">
+                          <svg viewBox="0 0 24 24" class="icon-am">
+                            <rect x="1.5" y="1.5" width="21" height="21" rx="5" fill="none" stroke="currentColor" stroke-width="2" />
+                            <text x="12" y="15.5" font-family="Arial, sans-serif" font-weight="900" font-size="10" text-anchor="middle">Am</text>
+                          </svg>
+                        </div>
+                        <span class="tool-label">Alight Motion</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Bagian Bawah: Tombol Utama -->
+                <div class="instagram-footer">
+                  <div class="mock-follow-btn">Kunjungi Profil</div>
+                </div>
+              </a>
+            </div>
+          </div>
         </div>
-      </div> 
+      </div>
 
       <h4 class="fw-bold mb-3">Featured Highlights</h4>
       <div id="carouselExample" class="carousel slide mb-5" data-bs-ride="carousel">

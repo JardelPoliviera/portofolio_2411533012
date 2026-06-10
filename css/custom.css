@@ -375,3 +375,234 @@ i.text-success {
 .form-check-label {
   color: var(--text-secondary);
 }
+/* ========================================================= */
+/* --- INSTAGRAM GLASSMORPHIC CARD v2 PREMIUM --- */
+/* ========================================================= */
+
+.instagram-glass-card {
+  position: relative;
+  width: 100%;
+  max-width: 320px;
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(20px) saturate(160%);
+  -webkit-backdrop-filter: blur(20px) saturate(160%);
+  border: 1px solid var(--border-glass);
+  border-radius: 24px;
+  padding: 24px;
+  text-decoration: none !important;
+  color: var(--text-primary) !important;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1), 
+              background 0.3s ease, 
+              border-color 0.3s ease, 
+              box-shadow 0.4s ease;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3);
+  overflow: hidden;
+}
+
+.instagram-glass-card:hover {
+  transform: translateY(-8px) scale(1.02);
+  background: rgba(255, 255, 255, 0.07);
+  border-color: rgba(10, 132, 255, 0.4); /* Berpijar mengikuti warna aksen iOS milikmu */
+  box-shadow: 0 20px 40px rgba(10, 132, 255, 0.18);
+}
+
+.glass-glow {
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(10, 132, 255, 0.15) 0%, transparent 65%);
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  pointer-events: none;
+}
+
+.instagram-glass-card:hover .glass-glow {
+  opacity: 1;
+}
+
+/* --- TATA LETAK AVATAR & IDENTITAS --- */
+.instagram-header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.avatar-container {
+  position: relative;
+  width: 68px;
+  height: 68px;
+}
+
+/* Bingkai Gradasi Melingkar Halus di Sekitar Foto */
+.avatar-gradient-border {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  padding: 2.5px;
+  background: linear-gradient(135deg, #00f2fe, #4facfe, #9999ff, #cc2366);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.instagram-avatar-img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+  background: #1a1a1a;
+}
+
+/* Lencana Logo Instagram Kecil di Pojok Kanan Bawah Avatar */
+.instagram-badge {
+  position: absolute;
+  bottom: -2px;
+  right: -2px;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: #0d1117;
+  border: 1.5px solid var(--border-glass);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+}
+
+.instagram-badge i {
+  font-size: 0.75rem;
+  color: #ffffff !important;
+}
+
+.instagram-user-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.ig-display-name {
+  font-weight: 600;
+  font-size: 1.1rem;
+  letter-spacing: -0.2px;
+}
+
+.ig-username {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+}
+
+.ig-bio {
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.85);
+  line-height: 1.4;
+  margin: 0;
+}
+
+/* --- DECK MINI SOFTWARE EDITING & DESIGN --- */
+.tool-deck-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 8px;
+}
+
+.tool-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  flex: 1;
+}
+
+.tool-badge {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.tool-badge svg {
+  width: 22px;
+  height: 22px;
+  color: rgba(255, 255, 255, 0.6);
+  fill: currentColor;
+  transition: all 0.3s ease;
+}
+
+.tool-label {
+  font-size: 0.65rem;
+  color: var(--text-secondary);
+  text-align: center;
+  white-space: nowrap;
+  transition: color 0.3s ease;
+}
+
+.tool-item:hover .tool-label {
+  color: var(--text-primary);
+}
+
+/* --- WARNA GLOW KHAS SEWAKTU TOMBOL TOOLS DI-HOVER --- */
+/* CapCut */
+.tool-item:hover .tool-badge[title="CapCut"] {
+  border-color: #00f2fe;
+  background: rgba(0, 242, 254, 0.08);
+  box-shadow: 0 0 14px rgba(0, 242, 254, 0.4);
+  transform: translateY(-3px);
+}
+.tool-item:hover .tool-badge[title="CapCut"] svg { color: #00f2fe; }
+
+/* Figma */
+.tool-item:hover .tool-badge[title="Figma"] {
+  border-color: #ff4c1e;
+  background: rgba(255, 76, 30, 0.08);
+  box-shadow: 0 0 14px rgba(255, 76, 30, 0.4);
+  transform: translateY(-3px);
+}
+.tool-item:hover .tool-badge[title="Figma"] svg { color: #ff4c1e; }
+
+/* After Effects */
+.tool-item:hover .tool-badge[title="After Effects"] {
+  border-color: #9999ff;
+  background: rgba(153, 153, 255, 0.08);
+  box-shadow: 0 0 14px rgba(153, 153, 255, 0.4);
+  transform: translateY(-3px);
+}
+.tool-item:hover .tool-badge[title="After Effects"] svg { color: #9999ff; }
+
+/* Alight Motion */
+.tool-item:hover .tool-badge[title="Alight Motion"] {
+  border-color: #00ff87;
+  background: rgba(0, 255, 135, 0.08);
+  box-shadow: 0 0 14px rgba(0, 255, 135, 0.4);
+  transform: translateY(-3px);
+}
+.tool-item:hover .tool-badge[title="Alight Motion"] svg { color: #00ff87; }
+
+/* --- TOMBOL TOMBOL KUNJUNGI PROFIL DI BAWAH --- */
+.mock-follow-btn {
+  width: 100%;
+  text-align: center;
+  background: var(--ios-accent);
+  border: 1px solid var(--ios-accent);
+  padding: 11px 0;
+  border-radius: 14px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(10, 132, 255, 0.2);
+}
+
+.instagram-glass-card:hover .mock-follow-btn {
+  background: #0070e0;
+  border-color: #0070e0;
+  box-shadow: 0 6px 20px rgba(10, 132, 255, 0.4);
+}
