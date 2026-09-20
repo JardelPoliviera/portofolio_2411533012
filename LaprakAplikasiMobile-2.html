@@ -1,0 +1,379 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Laporan Praktikum 2 - Portofolio</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <link rel="stylesheet" href="css/custom.css?v=2" />
+  </head>
+  <body class="bg-black text-white">
+    <!-- Mobile Navbar -->
+    <nav class="navbar navbar-dark bg-black fixed-top d-md-none border-bottom border-secondary">
+      <div class="container-fluid">
+        <a class="navbar-brand fw-bold" href="#"><i class="text-success"></i> My Portfolio</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mobileMenu">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="mobileMenu">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+            <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+            <li class="nav-item"><a class="nav-link active" href="portofolio.html">Portfolio</a></li>
+            <li class="nav-item"><a class="nav-link" href="kontak.html">Contact</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Desktop Sidebar -->
+    <nav class="sidebar d-none d-md-flex flex-column bg-black border-end border-secondary">
+      <div class="brand-section mb-4 p-4">
+        <h4><i class="text-success"></i> Arel's Portofolio</h4>
+      </div>
+      <ul class="nav flex-column px-3 gap-2">
+        <li class="nav-item">
+          <a href="index.html" class="nav-link text-secondary hover-white"><i class="fas fa-home me-2"></i> Home</a>
+        </li>
+        <li class="nav-item">
+          <a href="about.html" class="nav-link text-secondary hover-white"><i class="fas fa-user me-2"></i> About Me</a>
+        </li>
+        <li class="nav-item">
+          <a href="portofolio.html" class="nav-link text-white fw-bold"><i class="fas fa-book-open me-2"></i> Portfolio</a>
+        </li>
+        <li class="nav-item">
+          <a href="kontak.html" class="nav-link text-secondary hover-white"><i class="fas fa-envelope me-2"></i> Contact</a>
+        </li>
+      </ul>
+    </nav>
+
+    <main class="main-content">
+      <div class="container py-5 px-4">
+        <a href="portofolio.html" class="btn btn-outline-light btn-sm mb-4"> <i class="fas fa-arrow-left me-2"></i> Kembali ke Portfolio </a>
+
+        <div class="p-5 mb-5 rounded-3 bg-gradient-dark border border-secondary shadow">
+          <h1 class="display-5 fw-bold text-success">Laporan Praktikum 2</h1>
+          <p class="fs-5 text-secondary">Mata Kuliah: Aplikasi Mobile (Flutter)</p>
+          <hr class="my-4 border-secondary" />
+          <div class="row text-secondary small align-items-center">
+            <div class="col-md-3 mb-3 mb-md-0"><strong>Disusun Oleh:</strong><br />Jardel Poliviera</div>
+            <div class="col-md-3 mb-3 mb-md-0"><strong>NIM:</strong><br />2411533012</div>
+            <div class="col-md-3 mb-3 mb-md-0"><strong>Status:</strong><br /><span class="badge bg-success">Selesai</span></div>
+            <div class="col-md-3">
+              <strong>Repository Kode:</strong><br />
+              <a href="https://github.com/JardelPoliviera/PrakAppMob_B_2411533012/tree/praktikum-2" target="_blank" class="btn btn-outline-success btn-sm mt-1"> <i class="fab fa-github me-1"></i> Lihat Repository </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="row g-5">
+          <!-- Main Content -->
+          <div class="col-lg-8">
+            <section class="mb-5">
+              <h3 class="fw-bold text-white border-bottom border-success pb-2 mb-3">A. Pendahuluan</h3>
+              <p class="text-secondary lh-lg">
+                Dalam pengembangan aplikasi mobile menggunakan framework Flutter, formulir merupakan elemen krusial untuk berinteraksi dan mengelola input pengguna secara efektif. Praktikum ini berfokus pada implementasi Basic Form yang
+                berfungsi sebagai antarmuka penerimaan nilai melalui berbagai widget, khususnya TextField dan TextFormField. Penguasaan terhadap TextField yang berguna untuk masukan teks dasar, serta TextFormField yang merupakan versi
+                lengkap dengan integrasi otomatis terhadap logika validasi dan manajemen state, menjadi tujuan utama dari modul ini. Melalui pengerjaan berbagai skenario form mulai dari mengelola inputan sederhana, menerapkan aturan
+                validasi email, hingga menyusun formulir registrasi yang modular kemampuan mengontrol data menggunakan TextEditingController dan GlobalKey&lt;FormState&gt; dapat diimplementasikan untuk membangun aplikasi yang responsif dan
+                meminimalisir kesalahan input dari pengguna.
+              </p>
+            </section>
+
+            <section class="mb-5">
+              <h3 class="fw-bold text-white border-bottom border-success pb-2 mb-3">B. Tujuan</h3>
+              <ol class="text-secondary lh-lg mb-4">
+                <li>Mahasiswa mampu membuat basic form untuk menerima inputan dari keyboard dan mengelola inputan.</li>
+                <li>Membuat beberapa input widgets.</li>
+                <li>Membuat dan mengontrol inputan dari user.</li>
+              </ol>
+            </section>
+
+            <section class="mb-5">
+              <h3 class="fw-bold text-white border-bottom border-success pb-2 mb-3">C. Modul 1</h3>
+
+              <h5 class="fw-bold text-white mt-4">1. main.dart &amp; Scaffold</h5>
+              <div class="bg-dark p-3 rounded mb-3 border border-secondary shadow-sm overflow-auto text-light small">
+                <pre class="m-0"><code>void main() {
+  runApp(const MyApp());
+}
+
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      title: 'Expense Tracker',
+      theme: ThemeData(
+        primarySwatch: Colors.blue,
+      ),
+      home: const DashboardScreen(),
+    );
+  }
+}</code></pre>
+              </div>
+              <ul class="text-secondary lh-lg mb-4">
+                <li><strong>a. MaterialApp:</strong> Bertindak sebagai root atau fondasi utama aplikasi yang menerapkan gaya Material Design.</li>
+                <li><strong>b. Scaffold:</strong> Menyediakan struktur tata letak dasar, seperti AppBar untuk bagian atas layar, dan properti body untuk menampung isi konten utama aplikasi.</li>
+              </ul>
+
+              <h5 class="fw-bold text-white mt-4">2. Stateless Widget</h5>
+              <p class="text-secondary lh-lg">Stateless Widget digunakan untuk komponen UI yang bersifat statis dan tidak pernah berubah setelah dirender di layar.</p>
+              <div class="bg-dark p-3 rounded mb-3 border border-secondary shadow-sm overflow-auto text-light small">
+                <pre class="m-0"><code>Widget build(BuildContext context) {
+  return Row(
+    children: [
+      CircleAvatar(
+        radius: 30,
+        backgroundColor: Colors.blueAccent,
+        child: Icon(Icons.person, size: 30, color: Colors.white),
+      ),
+      SizedBox(width: 15),
+      Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(
+            'Halo, Budi',
+            style: TextStyle(
+              fontSize: 20,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+          Text(
+            'Selamat datang kembali!',
+            style: TextStyle(
+              fontSize: 14,
+              color: Colors.grey,
+            ),
+          ),
+        ],
+      ),
+    ],
+  );
+}</code></pre>
+              </div>
+              <p class="text-secondary lh-lg">Row digunakan untuk menyusun Avatar dan Sapaan secara menyamping kiri ke kanan, sedangkan Column digunakan untuk menumpuk teks sapaan dari atas ke bawah.</p>
+
+              <h5 class="fw-bold text-white mt-4">3. Stateful Widget &amp; setState</h5>
+              <div class="bg-dark p-3 rounded mb-3 border border-secondary shadow-sm overflow-auto text-light small">
+                <pre class="m-0"><code>class BalanceCardWidgetState extends State&lt;BalanceCardWidget&gt; {
+  bool _isBalanceVisible = true;
+
+  void _toggleVisibility() {
+    setState(() {
+      _isBalanceVisible = !_isBalanceVisible;
+    });
+  }
+}</code></pre>
+              </div>
+              <ul class="text-secondary lh-lg mb-3">
+                <li><strong>a. Variabel _isBalanceVisible:</strong> Menyimpan state aktif berupa nilai boolean untuk melacak status sensor teks.</li>
+                <li>
+                  <strong>b. Fungsi setState():</strong> Ini adalah metode krusial dalam Stateful Widget. Saat dipanggil, fungsi ini akan memperbarui nilai variabel dan memberi tahu Flutter untuk merender ulang UI agar sesuai dengan data
+                  terbaru.
+                </li>
+              </ul>
+              <p class="text-secondary lh-lg">Penerapan state tersebut pada UI menggunakan logika:</p>
+              <div class="bg-dark p-3 rounded mb-3 border border-secondary shadow-sm overflow-auto text-light small">
+                <pre class="m-0"><code>IconButton(
+  icon: Icon(
+    _isBalanceVisible ? Icons.visibility : Icons.visibility_off,
+    color: Colors.white,
+  ),
+  onPressed: _toggleVisibility,
+)</code></pre>
+              </div>
+              <p class="text-secondary lh-lg">Jika _isBalanceVisible bernilai true, maka tampilkan Icons.visibility. Jika false, tampilkan Icons.visibility_off. Logika yang sama juga diterapkan pada teks nominal saldo.</p>
+
+              <div class="text-center my-4">
+                <img src="images/LaprakMobile2/output1.png" alt="Output Modul 1" class="img-fluid rounded border border-secondary shadow" style="max-height: 400px" />
+                <p class="text-secondary small mt-2">Gambar 1: Output Modul 1</p>
+              </div>
+
+              <hr class="border-secondary my-5" />
+
+              <h5 class="fw-bold text-white mt-4">4. LATIHAN</h5>
+              <p class="text-secondary lh-lg"><strong>1) Tugas 1: Styling</strong> &rarr; Ubah warna tema BalanceCard dari biru (Colors.blueAccent) menjadi hijau emerald (Colors.teal).</p>
+              <div class="text-center my-4">
+                <img src="images/LaprakMobile2/modul1latihan1.png" alt="Output Tugas 1" class="img-fluid rounded border border-secondary shadow" style="max-height: 400px" />
+                <p class="text-secondary small mt-2">Gambar 2: Output Tugas 1 Styling</p>
+              </div>
+
+              <p class="text-secondary lh-lg mt-4"><strong>2) Tugas 2: Modifikasi UI</strong> &rarr; Tambahkan teks statis berupa "No. Rekening: 1234-5678" di bagian bawah nominal saldo di dalam kartu.</p>
+              <div class="bg-dark p-3 rounded mb-3 border border-secondary shadow-sm overflow-auto text-light small">
+                <pre class="m-0"><code>const SizedBox(
+  height: 4,
+),
+const Text(
+  'No. Rekening: 1234-5678',
+  style: TextStyle(fontSize: 14, color: Colors.white70),
+),</code></pre>
+              </div>
+              <div class="text-center my-4">
+                <img src="images/LaprakMobile2/modul1latihan2.png" alt="Output Tugas 2" class="img-fluid rounded border border-secondary shadow" style="max-height: 400px" />
+                <p class="text-secondary small mt-2">Gambar 3: Output Tugas 2 Modifikasi UI</p>
+              </div>
+            </section>
+
+            <section class="mb-5">
+              <h3 class="fw-bold text-white border-bottom border-success pb-2 mb-3">D. MODUL 2</h3>
+
+              <h5 class="fw-bold text-white mt-4">1. Scrollable Dashboard</h5>
+              <p class="text-secondary lh-lg">
+                Pada Modul 2, layar aplikasi mulai dipenuhi dengan banyak komponen. Agar layar tidak mengalami terpotong atau error saat daftar transaksi semakin panjang, komponen utama dibungkus menggunakan SingleChildScrollView.
+              </p>
+              <div class="bg-dark p-3 rounded mb-3 border border-secondary shadow-sm overflow-auto text-light small">
+                <pre class="m-0"><code>body: const SingleChildScrollView(
+  child: Padding(
+    padding: EdgeInsets.all(16.0),
+    child: Column(
+      // ...
+    ),
+  ),
+),</code></pre>
+              </div>
+              <p class="text-secondary lh-lg">SingleChildScrollView memungkinkan pengguna untuk menggulir layar secara vertikal jika konten melebihi batas tinggi layar perangkat.</p>
+
+              <h5 class="fw-bold text-white mt-4">2. Row &amp; Container</h5>
+              <p class="text-secondary lh-lg">Untuk deretan tombol "Pemasukan", "Pengeluaran", dan "Transfer", widget Row digunakan agar komponen berjejer ke samping.</p>
+              <div class="bg-dark p-3 rounded mb-3 border border-secondary shadow-sm overflow-auto text-light small">
+                <pre class="m-0"><code>return Row(
+  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+  children: [
+    _buildActionButton(Icons.arrow_downward, 'Pemasukan', Colors.green),
+    _buildActionButton(Icons.arrow_upward, 'Pengeluaran', Colors.red),
+    _buildActionButton(Icons.swap_horiz, 'Transfer', Colors.blue),
+  ],
+);</code></pre>
+              </div>
+              <p class="text-secondary lh-lg">MainAxisAlignment.spaceEvenly membagi sisa ruang kosong secara merata di antara elemen-elemen tombol, sehingga posisinya rapi dan seimbang di layar.</p>
+              <p class="text-secondary lh-lg">Pada fungsi _buildActionButton, ikon dibungkus dengan Container agar bisa dimodifikasi latar belakangnya.</p>
+              <div class="bg-dark p-3 rounded mb-3 border border-secondary shadow-sm overflow-auto text-light small">
+                <pre class="m-0"><code>Container(
+  padding: const EdgeInsets.all(12),
+  decoration: BoxDecoration(
+    color: color.withOpacity(0.2),
+    borderRadius: BorderRadius.circular(12),
+  ),
+  child: Icon(icon, color: color, size: 28),
+),
+const SizedBox(height: 8),</code></pre>
+              </div>
+              <p class="text-secondary lh-lg">Berfungsi sebagai kotak multifungsi yang bisa diberikan padding, warna background, serta bingkai melengkung melalui properti decoration.</p>
+
+              <h5 class="fw-bold text-white mt-4">3. Daftar Tersusun Otomatis</h5>
+              <p class="text-secondary lh-lg">Untuk riwayat transaksi, alih-alih merakit Row dan Column secara manual berulang kali, modul ini menggunakan ListTile.</p>
+              <div class="bg-dark p-3 rounded mb-3 border border-secondary shadow-sm overflow-auto text-light small">
+                <pre class="m-0"><code>ListTile(
+  leading: const CircleAvatar(
+    backgroundColor: Colors.redAccent,
+    child: Icon(Icons.sailing, color: Colors.white),
+  ),
+  title: const Text('Yatch Pribadi'),
+  subtitle: const Text('13 Sep 2026'),
+  trailing: const Text(
+    '-Rp 4.999.999.999',
+    style: TextStyle(color: Colors.red, fontWeight: FontWeight.bold),
+  ),
+)</code></pre>
+              </div>
+              <p class="text-secondary lh-lg">Widget bawaan Flutter untuk membuat baris daftar yang rapi secara instan. Terdiri dari komponen paling kiri atau ikon, title, subtitle, dan komponen paling kanan, seperti nominal uang.</p>
+
+              <div class="text-center my-4">
+                <img src="images/LaprakMobile2/output2.png" alt="Output Modul 2" class="img-fluid rounded border border-secondary shadow" style="max-height: 400px" />
+                <p class="text-secondary small mt-2">Gambar 4: Output Modul 2 Scrollable Dashboard &amp; ListTile</p>
+              </div>
+
+              <hr class="border-secondary my-5" />
+
+              <h5 class="fw-bold text-white mt-4">4. LATIHAN</h5>
+              <p class="text-secondary lh-lg">
+                <strong>1) Tugas 1: Styling</strong> &rarr; Pada widget Daftar Transaksi (ListTile), ubah warna trailing text pengeluaran menjadi merah dan text pemasukan menjadi hijau.<br />
+                <em>Sudah ada di modul tidak perlu di ubah</em>
+              </p>
+              <div class="text-center my-4">
+                <img src="images/LaprakMobile2/modul2latihan1.png" alt="Output Modul 2 Tugas 1" class="img-fluid rounded border border-secondary shadow" style="max-height: 400px" />
+                <p class="text-secondary small mt-2">Gambar 5: Output Modul 2 Tugas 1</p>
+              </div>
+
+              <p class="text-secondary lh-lg mt-4"><strong>2) Tugas 2: Tambah Data</strong> &rarr; Tambahkan 2 transaksi fiktif baru ke dalam daftar "Transaksi Terakhir" di bawah kode yang sudah ada.</p>
+              <div class="bg-dark p-3 rounded mb-3 border border-secondary shadow-sm overflow-auto text-light small">
+                <pre class="m-0"><code>const Divider(height: 1),
+ListTile(
+  leading: const CircleAvatar(
+    backgroundColor: Colors.orange,
+    child: Icon(Icons.shopping_cart, color: Colors.white),
+  ),
+  title: const Text('Belanja Bulanan'),
+  subtitle: const Text('15 Sep 2026'),
+  trailing: const Text(
+    '- Rp 2.500.000.000',
+    style: TextStyle(
+      color: Colors.red,
+      fontWeight: FontWeight.bold,
+    ),
+  ),
+),
+const Divider(height: 1),
+ListTile(
+  leading: const CircleAvatar(
+    backgroundColor: Colors.green,
+    child: Icon(
+      Icons.account_balance_wallet,
+      color: Colors.white,
+    ),
+  ),
+  title: const Text('Bonus Proyek'),
+  subtitle: const Text('18 Sep 2026'),
+  trailing: const Text(
+    '+ Rp 10.000.000.000',
+    style: TextStyle(
+      color: Colors.green,
+      fontWeight: FontWeight.bold,
+    ),
+  ),
+),</code></pre>
+              </div>
+              <div class="text-center my-4">
+                <img src="images/LaprakMobile2/modul2latihan2.png" alt="Output Modul 2 Tugas 2" class="img-fluid rounded border border-secondary shadow" style="max-height: 400px" />
+                <p class="text-secondary small mt-2">Gambar 6: Output Modul 2 Tugas 2</p>
+              </div>
+            </section>
+          </div>
+
+          <!-- Sidebar Detail Kanan -->
+          <div class="col-lg-4">
+            <div class="card bg-dark border-secondary p-4 sticky-top" style="top: 20px">
+              <h5 class="fw-bold text-success mb-3">Detail Praktikum</h5>
+              <ul class="list-unstyled text-secondary small">
+                <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i> MaterialApp &amp; Scaffold Structure</li>
+                <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i> Stateless &amp; Stateful Widget</li>
+                <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i> State Management (setState)</li>
+                <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i> Scrollable Layout (SingleChildScrollView)</li>
+                <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i> Row, Column &amp; Container Styling</li>
+                <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i> ListTile &amp; ListView Components</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <footer class="mt-5 pt-5 border-top border-secondary">
+          <div class="row">
+            <div class="col-md-6 mb-3">
+              <h5 class="fw-bold text-white">Tentang Website</h5>
+              <p class="text-secondary small">Website portofolio Jardel Poliviera.</p>
+            </div>
+            <div class="col-md-6 text-md-end">
+              <p class="text-secondary small">&copy; 2025 Jardel Poliviera. All Rights Reserved.</p>
+            </div>
+          </div>
+        </footer>
+      </div>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>
