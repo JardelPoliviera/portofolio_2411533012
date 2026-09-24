@@ -1,0 +1,265 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Laporan Praktikum 3 - Portofolio</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <link rel="stylesheet" href="css/custom.css?v=2" />
+  </head>
+  <body class="bg-black text-white">
+    <!-- Mobile Navbar -->
+    <nav class="navbar navbar-dark bg-black fixed-top d-md-none border-bottom border-secondary">
+      <div class="container-fluid">
+        <a class="navbar-brand fw-bold" href="#"><i class="text-success"></i> My Portfolio</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mobileMenu">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="mobileMenu">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+            <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+            <li class="nav-item"><a class="nav-link active" href="portofolio.html">Portfolio</a></li>
+            <li class="nav-item"><a class="nav-link" href="kontak.html">Contact</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Desktop Sidebar -->
+    <nav class="sidebar d-none d-md-flex flex-column bg-black border-end border-secondary">
+      <div class="brand-section mb-4 p-4">
+        <h4><i class="text-success"></i> Arel's Portofolio</h4>
+      </div>
+      <ul class="nav flex-column px-3 gap-2">
+        <li class="nav-item">
+          <a href="index.html" class="nav-link text-secondary hover-white"><i class="fas fa-home me-2"></i> Home</a>
+        </li>
+        <li class="nav-item">
+          <a href="about.html" class="nav-link text-secondary hover-white"><i class="fas fa-user me-2"></i> About Me</a>
+        </li>
+        <li class="nav-item">
+          <a href="portofolio.html" class="nav-link text-white fw-bold"><i class="fas fa-book-open me-2"></i> Portfolio</a>
+        </li>
+        <li class="nav-item">
+          <a href="kontak.html" class="nav-link text-secondary hover-white"><i class="fas fa-envelope me-2"></i> Contact</a>
+        </li>
+      </ul>
+    </nav>
+
+    <main class="main-content">
+      <div class="container py-5 px-4">
+        <a href="portofolio.html" class="btn btn-outline-light btn-sm mb-4"> <i class="fas fa-arrow-left me-2"></i> Kembali ke Portfolio </a>
+
+        <div class="p-5 mb-5 rounded-3 bg-gradient-dark border border-secondary shadow">
+          <h1 class="display-5 fw-bold text-success">Laporan Praktikum 3</h1>
+          <p class="fs-5 text-secondary">Mata Kuliah: Aplikasi Mobile</p>
+          <hr class="my-4 border-secondary" />
+          <div class="row text-secondary small align-items-center">
+            <div class="col-md-3 mb-3 mb-md-0"><strong>Disusun Oleh:</strong><br />Jardel Poliviera</div>
+            <div class="col-md-3 mb-3 mb-md-0"><strong>NIM:</strong><br />2411533012</div>
+            <div class="col-md-3 mb-3 mb-md-0"><strong>Status:</strong><br /><span class="badge bg-success">Selesai</span></div>
+            <div class="col-md-3">
+              <strong>Repository Kode:</strong><br />
+              <a href="https://github.com/JardelPoliviera/PrakAppMob_B_2411533012/tree/praktikum-2" target="_blank" class="btn btn-outline-success btn-sm mt-1"> <i class="fab fa-github me-1"></i> Lihat Repository </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="row g-5">
+          <!-- Main Content -->
+          <div class="col-lg-8">
+            <section class="mb-5">
+              <h3 class="fw-bold text-white border-bottom border-success pb-2 mb-3">A. Langkah Praktikum</h3>
+
+              <h5 class="fw-bold text-white mt-4">1. Persiapan State dan Kontroler</h5>
+              <div class="bg-dark p-3 rounded mb-3 border border-secondary shadow-sm overflow-auto text-light small">
+                <pre class="m-0"><code>final _formKey = GlobalKey&lt;FormState&gt;();
+final _titleController = TextEditingController();
+final _amountController = TextEditingController();
+
+@override
+void dispose() {
+  _titleController.dispose();
+  _amountController.dispose();
+  super.dispose();
+}</code></pre>
+              </div>
+              <p class="text-secondary lh-lg">
+                Pembuatan antarmuka diawali dengan mendefinisikan GlobalKey bertipe FormState yang berfungsi sebagai wadah utama untuk memvalidasi banyak input sekaligus. Penggunaan kunci ini krusial untuk mengikat seluruh komponen isian ke dalam satu status kesatuan. Selanjutnya, dibuat dua buah TextEditingController yang bertindak sebagai pengendali untuk membaca teks yang diketik pengguna pada kolom judul dan nominal. Fungsi dispose pada bagian bawah wajib disertakan untuk membersihkan memori dari kontroler saat halaman ditutup agar aplikasi tidak mengalami kebocoran memori.
+              </p>
+
+              <h5 class="fw-bold text-white mt-4">2. Widget Form dan Input Teks Terintegrasi</h5>
+              <div class="bg-dark p-3 rounded mb-3 border border-secondary shadow-sm overflow-auto text-light small">
+                <pre class="m-0"><code>Form(
+  key: _formKey,
+  child: Column(
+    children: [
+      TextFormField(
+        controller: _titleController,
+        decoration: const InputDecoration(labelText: "Judul Transaksi"),
+        validator: (value) => value!.isEmpty ? "Tidak boleh kosong" : null,
+      ),
+      TextFormField(
+        controller: _amountController,
+        keyboardType: TextInputType.number,
+        decoration: const InputDecoration(labelText: "Nominal (Rp)"),
+        validator: (value) {
+          if (value!.isEmpty) return "Wajib diisi";
+          if (int.tryParse(value) == null) return "Harus angka";
+          return null;
+        },
+      ),</code></pre>
+              </div>
+              <p class="text-secondary lh-lg">
+                Seluruh komponen isian dibungkus oleh widget Form dan dihubungkan dengan variabel formKey yang telah dibuat sebelumnya. Widget TextFormField digunakan untuk menyediakan kolom teks yang mendukung validasi terintegrasi. Pada kolom judul, diberikan properti dekorasi untuk menampilkan label teks petunjuk pengisian. Pada kolom nominal, ditambahkan properti keyboardType dengan nilai TextInputType dot number agar perangkat memunculkan papan ketik khusus angka saat kolom disentuh. Kedua kolom tersebut dilengkapi dengan properti validator yang berguna untuk mencegah masuknya data yang tidak sesuai format sebelum disimpan ke dalam sistem, di mana fungsi akan mengembalikan nilai null jika data valid dan memunculkan teks eror berwarna merah jika data tidak valid.
+              </p>
+
+              <h5 class="fw-bold text-white mt-4">3. Menu Tarik Turun Kategori</h5>
+              <div class="bg-dark p-3 rounded mb-3 border border-secondary shadow-sm overflow-auto text-light small">
+                <pre class="m-0"><code>DropdownButtonFormField&lt;String&gt;(
+  value: _selectedCategory,
+  items: ['Makanan', 'Transportasi', 'Hiburan'].map((category) {
+    return DropdownMenuItem(value: category, child: Text(category));
+  }).toList(),
+  onChanged: (val) =&gt; setState(() =&gt; _selectedCategory = val!),
+)</code></pre>
+              </div>
+              <p class="text-secondary lh-lg">
+                Untuk pilihan yang sudah pasti, digunakan widget DropdownButtonFormField yang menampilkan menu tarik turun interaktif. Properti items menerima daftar teks kategori yang kemudian dipetakan menjadi serangkaian DropdownMenuItem berisi nilai dan teks label tampilan. Ketika pengguna memilih opsi baru dari daftar tersebut, properti onChanged akan merespons dengan menjalankan fungsi setState untuk memperbarui variabel kategori terpilih dan menggambar ulang tampilan antarmuka dengan pilihan terbaru.
+              </p>
+
+              <h5 class="fw-bold text-white mt-4">4. Tombol Eksekusi dan Penampil Pesan</h5>
+              <div class="bg-dark p-3 rounded mb-3 border border-secondary shadow-sm overflow-auto text-light small">
+                <pre class="m-0"><code>ElevatedButton(
+  onPressed: () {
+    if (_formKey.currentState!.validate()) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(content: Text('Menyimpan Transaksi...'))
+      );
+    }
+  },
+  child: const Text("Simpan Transaksi"),
+)</code></pre>
+              </div>
+              <p class="text-secondary lh-lg">
+                Komponen terakhir pada formulir adalah ElevatedButton yang berfungsi sebagai tombol pemicu utama. Ketika tombol ini ditekan, sistem menjalankan metode validate dari status formKey untuk memicu seluruh fungsi validator yang ada di setiap kolom secara bersamaan. Apabila seluruh pengecekan mengembalikan nilai valid atau null, program akan mengeksekusi ScaffoldMessenger untuk menampilkan sebuah SnackBar di bagian bawah layar. Pesan ini merupakan umpan balik visual kepada pengguna bahwa instruksi sedang diproses.
+              </p>
+
+              <h5 class="fw-bold text-white mt-4">5. Output</h5>
+              <p class="text-secondary lh-lg">
+                Aplikasi menampilkan halaman berjudul Catat Transaksi Baru yang didominasi warna tema ungu. Di dalam layar utama, terdapat susunan isian formulir mulai dari Judul Transaksi, kolom Nominal dengan ikon mata uang, menu tarik turun untuk memilih Kategori seperti Makanan atau Transportasi, dan diakhiri dengan tombol berlabel Simpan Transaksi. Apabila pengguna menekan tombol simpan saat isian masih kosong, sistem menolak proses tersebut dan menampilkan teks peringatan berwarna merah tepat di bawah kolom yang belum lengkap. Sebaliknya, jika data diisi dengan benar, perangkat akan memunculkan bilah pesan berwarna hijau dari dasar layar yang menandakan keberhasilan penyimpanan.
+              </p>
+              
+              <div class="text-center my-4">
+                <!-- GANTI SRC GAMBAR DI BAWAH INI DENGAN SCREENSHOT OUTPUT PRAKTIKUM ANDA -->
+                <img src="images/LaprakMobile3/output1.png" alt="Output Langkah Praktikum" class="img-fluid rounded border border-secondary shadow" style="max-height: 400px" />
+                <p class="text-secondary small mt-2">Gambar 1: Output Langkah Praktikum</p>
+              </div>
+            </section>
+
+            <hr class="border-secondary my-5" />
+
+            <section class="mb-5">
+              <h3 class="fw-bold text-white border-bottom border-success pb-2 mb-3">B. LATIHAN</h3>
+
+              <h5 class="fw-bold text-white mt-4">1. Logika Pemilihan Tanggal Kalender</h5>
+              <div class="bg-dark p-3 rounded mb-3 border border-secondary shadow-sm overflow-auto text-light small">
+                <pre class="m-0"><code>final _dateController = TextEditingController();
+
+Future&lt;void&gt; _selectDate(BuildContext context) async {
+  final DateTime? pickedDate = await showDatePicker(
+    context: context,
+    initialDate: DateTime.now(),
+    firstDate: DateTime(2000),
+    lastDate: DateTime(2101),
+  );
+
+  if (pickedDate != null) {
+    setState(() {
+      _dateController.text = "${pickedDate.day}/${pickedDate.month}/${pickedDate.year}";
+    });
+  }
+}</code></pre>
+              </div>
+              <p class="text-secondary lh-lg">
+                Langkah awal untuk menambahkan fitur tanggal adalah dengan menyiagakan satu TextEditingController tambahan khusus untuk menyimpan nilai tanggal. Selanjutnya, disusun sebuah fungsi asinkron selectDate yang bertugas memanggil fitur showDatePicker yang merupakan instruksi utama dari tugas latihan. Fitur ini menampilkan jendela dialog kalender interaktif bawaan material desain. Di dalam pengaturan kalender tersebut ditetapkan waktu awal saat dibuka, batas kalender masa lalu pada tahun dua ribu, serta batas maksimal di tahun dua ribu seratus satu. Apabila pengguna telah memilih hari, fungsi setState akan berjalan untuk memperbarui antarmuka sekaligus merangkai angka tanggal, bulan, dan tahun menjadi satu kalimat format yang kemudian disisipkan ke dalam kontroler teks.
+              </p>
+
+              <h5 class="fw-bold text-white mt-4">2. Integrasi Widget Kolom Tanggal</h5>
+              <div class="bg-dark p-3 rounded mb-3 border border-secondary shadow-sm overflow-auto text-light small">
+                <pre class="m-0"><code>TextFormField(
+  controller: _dateController,
+  readOnly: true,
+  decoration: const InputDecoration(
+    labelText: "Tanggal Transaksi",
+    prefixIcon: Icon(Icons.calendar_today),
+  ),
+  onTap: () {
+    _selectDate(context);
+  },
+  validator: (value) {
+    if (value == null || value.isEmpty) {
+      return "Tanggal wajib diisi";
+    }
+    return null;
+  },
+)</code></pre>
+              </div>
+              <p class="text-secondary lh-lg">
+                Sebuah widget TextFormField baru disisipkan ke dalam susunan formulir tepat sebelum tombol Simpan Transaksi sesuai instruksi. Untuk mencegah pengguna mengetik manual yang rentan terhadap kesalahan format, properti readOnly diatur menjadi aktif sehingga papan ketik bawaan perangkat tidak akan muncul. Sebagai solusi masukannya, fungsi onTap disematkan untuk mendeteksi sentuhan pada kolom tersebut, yang mana secara otomatis akan memanggil fungsi selectDate untuk membuka dialog kalender. Sama halnya dengan masukan lain, kolom ini juga dibekali logika validator wajib diisi untuk menahan proses penyimpanan apabila informasi tanggal masih dikosongkan.
+              </p>
+
+              <h5 class="fw-bold text-white mt-4">3. Output Latihan</h5>
+              <p class="text-secondary lh-lg">
+                Setelah tugas berhasil diimplementasikan, tampilan formulir mengalami penambahan satu baris kolom isian berlabel Tanggal Transaksi lengkap dengan ikon kalender yang terletak di antara pilihan kategori dan tombol simpan. Keunikannya terletak pada interaksi kolom ini, di mana sentuhan pengguna tidak akan memunculkan papan ketik huruf, melainkan menggeser layar menjadi redup dan memunculkan jendela kalender melayang. Setelah hari, bulan, dan tahun dipilih melalui jendela tersebut lalu dikonfirmasi, tanggal akan tercetak di dalam kolom secara otomatis dengan format susunan angka bergaris miring. Proses validasi juga bekerja di sini sehingga penekanan tombol simpan saat kolom masih kosong akan langsung memunculkan pesan eror peringatan merah di bawah isian tanggal.
+              </p>
+
+              <div class="text-center my-4">
+                <!-- GANTI SRC GAMBAR DI BAWAH INI DENGAN SCREENSHOT OUTPUT KALENDER ANDA -->
+                <img src="images/LaprakMobile3/output2.png" alt="Output Latihan Pemilihan Kalender" class="img-fluid rounded border border-secondary shadow" style="max-height: 400px" />
+                <p class="text-secondary small mt-2">Gambar 2: Output Latihan Pemilihan Tanggal Kalender</p>
+              </div>
+
+              <div class="text-center my-4">
+                <!-- GANTI SRC GAMBAR DI BAWAH INI DENGAN SCREENSHOT OUTPUT FINAL LATIHAN ANDA -->
+                <img src="images/LaprakMobile3/output3.png" alt="Output Latihan Hasil" class="img-fluid rounded border border-secondary shadow" style="max-height: 400px" />
+                <p class="text-secondary small mt-2">Gambar 3: Output Latihan Hasil Tanggal</p>
+              </div>
+            </section>
+          </div>
+
+          <!-- Sidebar Detail Kanan -->
+          <div class="col-lg-4">
+            <div class="card bg-dark border-secondary p-4 sticky-top" style="top: 20px">
+              <h5 class="fw-bold text-success mb-3">Detail Praktikum 3</h5>
+              <ul class="list-unstyled text-secondary small">
+                <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i> Penggunaan GlobalKey &amp; FormState</li>
+                <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i> Pengelolaan Input (TextEditingController)</li>
+                <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i> Validasi Widget (TextFormField)</li>
+                <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i> Menu Interaktif (DropdownButtonFormField)</li>
+                <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i> Umpan Balik Visual (ScaffoldMessenger)</li>
+                <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i> Fitur Asinkron (showDatePicker)</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <footer class="mt-5 pt-5 border-top border-secondary">
+          <div class="row">
+            <div class="col-md-6 mb-3">
+              <h5 class="fw-bold text-white">Tentang Website</h5>
+              <p class="text-secondary small">Website portofolio Jardel Poliviera.</p>
+            </div>
+            <div class="col-md-6 text-md-end">
+              <p class="text-secondary small">&copy; 2026 Jardel Poliviera. All Rights Reserved.</p>
+            </div>
+          </div>
+        </footer>
+      </div>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>
