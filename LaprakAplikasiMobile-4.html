@@ -1,0 +1,336 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Laporan Praktikum 4 - Portofolio</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <link rel="stylesheet" href="css/custom.css?v=2" />
+  </head>
+  <body class="bg-black text-white">
+    <!-- Mobile Navbar -->
+    <nav class="navbar navbar-dark bg-black fixed-top d-md-none border-bottom border-secondary">
+      <div class="container-fluid">
+        <a class="navbar-brand fw-bold" href="#"><i class="text-success"></i> My Portfolio</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mobileMenu">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="mobileMenu">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+            <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+            <li class="nav-item"><a class="nav-link active" href="portofolio.html">Portfolio</a></li>
+            <li class="nav-item"><a class="nav-link" href="kontak.html">Contact</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Desktop Sidebar -->
+    <nav class="sidebar d-none d-md-flex flex-column bg-black border-end border-secondary">
+      <div class="brand-section mb-4 p-4">
+        <h4><i class="text-success"></i> Arel's Portofolio</h4>
+      </div>
+      <ul class="nav flex-column px-3 gap-2">
+        <li class="nav-item">
+          <a href="index.html" class="nav-link text-secondary hover-white"><i class="fas fa-home me-2"></i> Home</a>
+        </li>
+        <li class="nav-item">
+          <a href="about.html" class="nav-link text-secondary hover-white"><i class="fas fa-user me-2"></i> About Me</a>
+        </li>
+        <li class="nav-item">
+          <a href="portofolio.html" class="nav-link text-white fw-bold"><i class="fas fa-book-open me-2"></i> Portfolio</a>
+        </li>
+        <li class="nav-item">
+          <a href="kontak.html" class="nav-link text-secondary hover-white"><i class="fas fa-envelope me-2"></i> Contact</a>
+        </li>
+      </ul>
+    </nav>
+
+    <main class="main-content">
+      <div class="container py-5 px-4">
+        <a href="portofolio.html" class="btn btn-outline-light btn-sm mb-4"> <i class="fas fa-arrow-left me-2"></i> Kembali ke Portfolio </a>
+
+        <div class="p-5 mb-5 rounded-3 bg-gradient-dark border border-secondary shadow">
+          <h1 class="display-5 fw-bold text-success">Laporan Praktikum 4</h1>
+          <p class="fs-5 text-secondary">Mata Kuliah: Aplikasi Mobile</p>
+          <hr class="my-4 border-secondary" />
+          <div class="row text-secondary small align-items-center">
+            <div class="col-md-3 mb-3 mb-md-0"><strong>Disusun Oleh:</strong><br />Jardel Poliviera</div>
+            <div class="col-md-3 mb-3 mb-md-0"><strong>NIM:</strong><br />2411533012</div>
+            <div class="col-md-3 mb-3 mb-md-0"><strong>Status:</strong><br /><span class="badge bg-success">Selesai</span></div>
+            <div class="col-md-3">
+              <strong>Repository Kode:</strong><br />
+              <a href="https://github.com/JardelPoliviera/PrakAppMob_B_2411533012/tree/praktikum-4" target="_blank" class="btn btn-outline-success btn-sm mt-1"> <i class="fab fa-github me-1"></i> Lihat Repository </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="row g-5">
+          <!-- Main Content -->
+          <div class="col-lg-8">
+            <section class="mb-5">
+              <h3 class="fw-bold text-white border-bottom border-success pb-2 mb-3">A. Langkah Praktikum</h3>
+
+              <h5 class="fw-bold text-white mt-4">1. Halaman Detail Transaksi</h5>
+              <p class="text-secondary mb-2"><strong>a. Struktur Class dan Parameter Constructor:</strong></p>
+              <div class="bg-dark p-3 rounded mb-3 border border-secondary shadow-sm overflow-auto text-light small">
+                <pre class="m-0"><code>class TransactionDetailScreen extends StatelessWidget {
+  final String title;
+  final String amount;
+  final String category;
+  final String date;
+
+  const TransactionDetailScreen({
+    super.key,
+    required this.title,
+    required this.amount,
+    required this.category,
+    required this.date,
+  });</code></pre>
+              </div>
+              <p class="text-secondary lh-lg">
+                Mendefinisikan sebuah halaman statis bernama <code>TransactionDetailScreen</code> yang bertugas menerima data dari layar sebelumnya melalui konsep <em>passing data</em>. Karena menggunakan <code>StatelessWidget</code>, variabel penampung data seperti <code>title</code>, <code>amount</code>, <code>category</code>, dan <code>date</code> dideklarasikan dengan kata kunci <code>final</code> sehingga nilainya tetap dan tidak dapat diubah setelah diinisialisasi. Data tersebut kemudian diterima melalui <em>constructor</em> yang dilengkapi penanda <code>required</code>, yang berarti layar pemanggil wajib mengirimkan seluruh parameter tersebut secara lengkap saat melakukan navigasi agar program dapat berjalan tanpa error.
+              </p>
+
+              <p class="text-secondary mb-2 mt-4"><strong>b. Perancangan UI (Build Method):</strong></p>
+              <div class="bg-dark p-3 rounded mb-3 border border-secondary shadow-sm overflow-auto text-light small">
+                <pre class="m-0"><code>@override
+Widget build(BuildContext context) {
+  return Scaffold(
+    appBar: AppBar(
+      title: const Text("Detail Transaksi"),
+      backgroundColor: Colors.red,
+      foregroundColor: Colors.white,
+    ),
+    body: Padding(
+      padding: const EdgeInsets.all(24.0),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          const Icon(Icons.receipt_long, size: 80, color: Colors.redAccent),
+          const SizedBox(height: 24),
+          Text(
+            title,
+            style: const TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+          ),
+          const SizedBox(height: 8),
+          Text(
+            amount,
+            style: const TextStyle(
+              fontSize: 32,
+              fontWeight: FontWeight.bold,
+              color: Colors.red,
+            ),
+          ),
+          const Divider(height: 40, thickness: 2),
+          _buildDetailRow('Kategori', category),
+          const SizedBox(height: 16),
+          _buildDetailRow('Tanggal', date),
+          const SizedBox(height: 16),
+          _buildDetailRow('Status', 'Berhasil'),
+        ],
+      ),
+    ),
+  );
+}</code></pre>
+              </div>
+              <p class="text-secondary lh-lg">
+                Metode <code>build</code> bertugas untuk merancang antarmuka visual halaman detail transaksi menggunakan kerangka <code>Scaffold</code>. Bagian atasnya menampilkan <code>AppBar</code> berwarna merah dengan judul teks putih, sedangkan bagian utamanya (<code>body</code>) menggunakan widget <code>Column</code> untuk menyusun elemen secara vertikal di tengah layar dengan jarak bantalan (<code>padding</code>) yang rapi. Elemen-elemen yang ditampilkan secara berurutan meliputi ikon struk, teks dari variabel <code>title</code> dan <code>amount</code> yang datanya diterima dari layar pemanggil sebelumnya, sebuah garis pemisah (<code>Divider</code>), dan diakhiri dengan pemanggilan fungsi pembantu <code>_buildDetailRow</code> untuk menyusun teks informasi kategori, tanggal, dan status transaksi agar tampil rapi dan sejajar.
+              </p>
+
+              <h5 class="fw-bold text-white mt-4">2. Detail &amp; Mengirim Data (Push)</h5>
+              <div class="bg-dark p-3 rounded mb-3 border border-secondary shadow-sm overflow-auto text-light small">
+                <pre class="m-0"><code>ListTile(
+  leading: const CircleAvatar(
+    backgroundColor: Colors.green,
+    child: Icon(Icons.attach_money, color: Colors.white),
+  ),
+  title: const Text('Gaji Bulanan'),
+  subtitle: const Text('1 September 2026'),
+  trailing: const Text(
+    '+ Rp 300.000.000',
+    style: TextStyle(color: Colors.green, fontWeight: FontWeight.bold),
+  ),
+  onTap: () {
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (context) => const TransactionDetailScreen(
+          title: 'Gaji Bulanan',
+          amount: '+ Rp 300.000.000',
+          category: 'Pemasukan',
+          date: '1 September 2026',
+        ),
+      ),
+    );
+  },
+),</code></pre>
+              </div>
+              <p class="text-secondary lh-lg">
+                Menggunakan widget <code>ListTile</code> untuk merancang tampilan satu baris item pada daftar transaksi yang secara visual terdiri dari ikon uang, judul transaksi, tanggal, dan nominal pemasukan. Inti dari blok kode ini terletak pada penggunaan parameter <code>onTap</code> yang memanfaatkan perintah <code>Navigator.push</code> untuk memicu perpindahan layar menuju halaman <code>TransactionDetailScreen</code>. Pada saat proses navigasi tersebut dieksekusi, kode ini secara bersamaan melakukan praktik <em>passing data</em> dengan menyuntikkan nilai spesifik seperti judul, nominal, kategori, dan tanggal langsung ke dalam <em>constructor</em> halaman tujuan agar data tersebut siap dirender pada layar detail.
+              </p>
+
+              <h5 class="fw-bold text-white mt-4">3. Menutup Layar / Kembali Otomatis (Pop)</h5>
+              <div class="bg-dark p-3 rounded mb-3 border border-secondary shadow-sm overflow-auto text-light small">
+                <pre class="m-0"><code>ElevatedButton(
+  style: ElevatedButton.styleFrom(
+    backgroundColor: Colors.red,
+    foregroundColor: Colors.white,
+    padding: const EdgeInsets.symmetric(vertical: 16),
+  ),
+  onPressed: () {
+    if (_formKey.currentState!.validate()) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(
+          content: Text('Transaksi Berhasil Disimpan!'),
+          backgroundColor: Colors.green,
+        ),
+      );
+      // Kembali ke Halaman Dashboard
+      Navigator.pop(context);
+    }
+  },
+  child: const Text("Simpan", style: TextStyle(fontSize: 16)),
+),</code></pre>
+              </div>
+              <p class="text-secondary lh-lg">
+                Mendefinisikan sebuah tombol simpan menggunakan widget <code>ElevatedButton</code> yang akan mengeksekusi serangkaian aksi saat ditekan. Pertama, blok kode di dalam parameter <code>onPressed</code> melakukan validasi terhadap status form untuk memastikan seluruh kolom input telah diisi dengan benar. Jika proses validasi berhasil, sistem akan menampilkan pesan notifikasi sukses berwarna hijau menggunakan <code>SnackBar</code>, lalu langsung disusul dengan eksekusi perintah <code>Navigator.pop</code> yang berfungsi untuk menghapus atau menutup halaman formulir saat ini dari tumpukan layar, sehingga pengguna akan kembali secara otomatis ke halaman sebelumnya, yaitu Dashboard.
+              </p>
+
+              <h5 class="fw-bold text-white mt-4">4. Output Langkah Praktikum</h5>
+              <p class="text-secondary lh-lg">
+                Aplikasi menampilkan halaman utama berupa Dashboard Keuangan yang berisi ringkasan saldo utama dan daftar transaksi terakhir. Ketika salah satu item transaksi pada daftar ditekan, sistem melakukan navigasi berpindah layar ke halaman Detail Transaksi dengan membawa data item tersebut. Pada layar detail, informasi seperti ikon struk, nominal, kategori, tanggal, serta status transaksi ditampilkan secara terstruktur. Selain itu, pada halaman Catat Transaksi, setelah pengguna mengisi data dan menekan tombol Simpan, aplikasi akan memicu validasi dan menampilkan notifikasi sukses sebelum secara otomatis menutup layar dan kembali ke Dashboard.
+              </p>
+
+              <div class="text-center my-4">
+                <img src="images/LaprakMobile4/output1.png" alt="Dashboard Keuangan" class="img-fluid rounded border border-secondary shadow" style="max-height: 400px" />
+                <p class="text-secondary small mt-2">Gambar 1: Tampilan Dashboard Keuangan</p>
+              </div>
+
+              <div class="text-center my-4">
+                <img src="images/LaprakMobile4/output2.png" alt="Detail Transaksi" class="img-fluid rounded border border-secondary shadow" style="max-height: 400px" />
+                <p class="text-secondary small mt-2">Gambar 2: Tampilan Halaman Detail Transaksi</p>
+              </div>
+
+              <div class="text-center my-4">
+                <img src="images/LaprakMobile4/output3.png" alt="Catat Transaksi" class="img-fluid rounded border border-secondary shadow" style="max-height: 400px" />
+                <p class="text-secondary small mt-2">Gambar 3: Tampilan Halaman Catat Transaksi</p>
+              </div>
+            </section>
+
+            <hr class="border-secondary my-5" />
+
+            <section class="mb-5">
+              <h3 class="fw-bold text-white border-bottom border-success pb-2 mb-3">B. LATIHAN</h3>
+
+              <h5 class="fw-bold text-white mt-4">1. Logika Pemilihan Tanggal Kalender</h5>
+              <p class="text-secondary mb-2"><strong>a. Inisialisasi Controller:</strong></p>
+              <div class="bg-dark p-3 rounded mb-3 border border-secondary shadow-sm overflow-auto text-light small">
+                <pre class="m-0"><code>final _dateController = TextEditingController();</code></pre>
+              </div>
+              <p class="text-secondary lh-lg mb-3">
+                Digunakan untuk menampung teks tanggal transaksi yang dipilih oleh pengguna dari dialog kalender.
+              </p>
+
+              <p class="text-secondary mb-2"><strong>b. Fungsi Asinkron Dialog Kalender:</strong></p>
+              <div class="bg-dark p-3 rounded mb-3 border border-secondary shadow-sm overflow-auto text-light small">
+                <pre class="m-0"><code>Future&lt;void&gt; _selectDate(BuildContext context) async {
+  final DateTime? picked = await showDatePicker(
+    context: context,
+    initialDate: DateTime.now(),
+    firstDate: DateTime(2000),
+    lastDate: DateTime(2101),
+  );
+  if (picked != null) {
+    setState(() {
+      String day = picked.day.toString().padLeft(2, '0');
+      String month = picked.month.toString().padLeft(2, '0');
+      String year = picked.year.toString();
+      _dateController.text = "$day/$month/$year";
+    });
+  }
+}</code></pre>
+              </div>
+              <p class="text-secondary lh-lg">
+                Fungsi <code>async</code> yang bertugas untuk menampilkan dialog kalender bawaan Flutter (<code>showDatePicker</code>) dengan rentang tahun dari 2000 hingga 2101. Ketika pengguna memilih tanggal dan mengonfirmasinya, nilai tanggal tersebut diformat menjadi string berformat <code>DD/MM/YYYY</code> dan dimasukkan ke dalam <code>_dateController</code> melalui pemanggilan <code>setState</code>.
+              </p>
+
+              <h5 class="fw-bold text-white mt-4">2. Integrasi Widget Input Tanggal Transaksi</h5>
+              <div class="bg-dark p-3 rounded mb-3 border border-secondary shadow-sm overflow-auto text-light small">
+                <pre class="m-0"><code>TextFormField(
+  controller: _dateController,
+  readOnly: true, // Mencegah pengetikan manual
+  decoration: InputDecoration(
+    labelText: "Tanggal Transaksi (DD/MM/YYYY)",
+    border: const OutlineInputBorder(),
+    suffixIcon: IconButton(
+      icon: const Icon(Icons.calendar_today),
+      onPressed: () => _selectDate(context),
+    ),
+  ),
+  onTap: () => _selectDate(context),
+  validator: (value) =>
+      value == null || value.isEmpty ? "Tanggal wajib diisi!" : null,
+),</code></pre>
+              </div>
+              <p class="text-secondary lh-lg">
+                Komponen UI input tanggal diletakkan sebelum tombol Simpan. Widget ini dikonfigurasi dengan properti <code>readOnly: true</code> untuk mencegah pengetikan manual, serta disemati ikon kalender (<code>suffixIcon</code>) dan handler <code>onTap</code> yang akan memanggil fungsi <code>_selectDate(context)</code>. Komponen ini juga dilengkapi fungsi validasi agar tanggal tidak boleh dikosongkan saat pengiriman form.
+              </p>
+
+              <h5 class="fw-bold text-white mt-4">3. Output Latihan</h5>
+              <p class="text-secondary lh-lg">
+                Pengujian fitur latihan menunjukkan bahwa saat form dicoba disimpan dalam keadaan kosong, sistem menjalankan validasi dan menampilkan pesan peringatan berwarna merah "Tanggal wajib diisi!" beserta peringatan pada kolom judul dan nominal. Ketika pengguna mengetuk kolom tanggal atau ikon kalender, jendela pemilih tanggal (<code>showDatePicker</code>) akan muncul. Setelah tanggal dipilih dan tombol Simpan ditekan, transaksi berhasil disimpan dengan munculnya notifikasi <code>SnackBar</code> hijau, lalu aplikasi melakukan navigasi kembali ke halaman Dashboard Keuangan.
+              </p>
+
+              <div class="text-center my-4">
+                <img src="images/LaprakMobile4/latihan1.png" alt="Validasi Form Tanggal" class="img-fluid rounded border border-secondary shadow" style="max-height: 400px" />
+                <p class="text-secondary small mt-2">Gambar 4: Output Validasi Form Input Tanggal</p>
+              </div>
+
+              <div class="text-center my-4">
+                <img src="images/LaprakMobile4/latihan2.png" alt="Dialog DatePicker" class="img-fluid rounded border border-secondary shadow" style="max-height: 400px" />
+                <p class="text-secondary small mt-2">Gambar 5: Output Dialog Pemilihan Tanggal (DatePicker)</p>
+              </div>
+
+              <div class="text-center my-4">
+                <img src="images/LaprakMobile4/latihan3.png" alt="Berhasil Simpan dan Pop" class="img-fluid rounded border border-secondary shadow" style="max-height: 400px" />
+                <p class="text-secondary small mt-2">Gambar 6: Output Notifikasi Sukses Simpan dan Kembali ke Dashboard</p>
+              </div>
+            </section>
+          </div>
+
+          <!-- Sidebar Detail Kanan -->
+          <div class="col-lg-4">
+            <div class="card bg-dark border-secondary p-4 sticky-top" style="top: 20px">
+              <h5 class="fw-bold text-success mb-3">Detail Praktikum 4</h5>
+              <ul class="list-unstyled text-secondary small">
+                <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i> Navigasi &amp; Passing Data (<code>Navigator.push</code>)</li>
+                <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i> Parameter Constructor (<code>StatelessWidget</code>)</li>
+                <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i> Penutupan Layar / Pop (<code>Navigator.pop</code>)</li>
+                <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i> Pemilihan Tanggal Asinkron (<code>showDatePicker</code>)</li>
+                <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i> Controller Tanggal (<code>TextEditingController</code>)</li>
+                <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i> Validasi &amp; Read-Only Input Tanggal</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <footer class="mt-5 pt-5 border-top border-secondary">
+          <div class="row">
+            <div class="col-md-6 mb-3">
+              <h5 class="fw-bold text-white">Tentang Website</h5>
+              <p class="text-secondary small">Website portofolio Jardel Poliviera.</p>
+            </div>
+            <div class="col-md-6 text-md-end">
+              <p class="text-secondary small">&copy; 2026 Jardel Poliviera. All Rights Reserved.</p>
+            </div>
+          </div>
+        </footer>
+      </div>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>
